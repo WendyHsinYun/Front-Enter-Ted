@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Front-Enter - 前端轉職資訊</title>
-  <link rel="stylesheet" href="all.css">
+  <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
@@ -18,10 +18,21 @@
         <li><a href="#">探索</a></li>
         <li><a href="#">技能樹</a></li>
         <li><a href="#">登入</a></li>
-        <img src="./images/FE_search_green.png" alt="search" class="search">
+        <!-- <img src="./images/FE_search_green.png" alt="search" class="search"> -->
+
+        <label for="checkbox" class="search-label"></label>
       </ul>
     </nav>
   </header>
+  <input type="checkbox" id="checkbox" class="search-checkbox">
+  <div class="search-panel">
+    <p>SEARCH</p>
+    <div class="search-content">
+      <input type="text">
+      <button type="button" class="voiceBtn"></button>
+      <button type="button" class="searchBtn"></button>
+    </div>
+  </div>
   <main>
     <section>
       <div class="container first-background">
@@ -82,14 +93,12 @@
       </div>
     </section>
     <div class="go-top">
-      <img src="images/FE_TOP.png" alt="top">
+      <img src="images/FE_TOP.png" alt="go-top" class="topBtn">
     </div>
-    <div>
-      <img src="./images/FE_test_go.png" alt="go to test" class="test-img">
-    </div>
+    <img src="./images/FE_test_go.png" alt="go to test" class="test-img">
   </main>
   <footer>
-    <div>
+    <div class="contact">
       <a href="#">聯絡</a>
     </div>
     <div class="contact">
@@ -101,10 +110,13 @@
       <p>aaa24295234@gmail.com</p>
     </div>
     <div class="social-link">
-      <img src="./images/new-facebook-blue.svg" alt="">
-      <img src="./images/FE_line.png" alt="">
+      <a href="http://www.facebook.com" target="_blank"><img src="./images/new-facebook-blue.svg" alt=""></a>
+      <a href="http://line.me" target="_blank"><img src="./images/FE_line.png" alt=""></a>
+
     </div>
   </footer>
+  <div class="loading"></div>
 </body>
+<script src="index.js"></script>
 
 </html>
