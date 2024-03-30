@@ -1,768 +1,176 @@
-/* CSS reset */
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
-  display: block;
-}
-body {
-  line-height: 1;
-}
-ol,
-ul {
-  list-style: none;
-}
-blockquote,
-q {
-  quotes: none;
-}
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-  content: '';
-  content: none;
-}
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-body {
-  /* 改變整個網頁的盒模型計算方式，避免 header 加上 padding 後超出頁面形成捲軸 */
-  box-sizing: border-box;
-  font-family: 'Noto Sans TC', '華康黑體', '微軟正黑體', arial, sans-serif;
-  position: relative;
-}
-
-a {
-  /* 清除所有超連結的下底線 */
-  text-decoration: none;
-}
-
-button {
-  cursor: pointer;
-}
-
-header {
-  /* 將 nav 改成橫式排版，並拉開左右區塊的距離 */
-  display: flex;
-  justify-content: space-between;
-  /* 垂直置中 */
-  align-items: center;
-  /* 設定背景顏色與透明度 */
-  background: white;
-  opacity: 0.8;
-  /* 寬度用百分比設定，讓他可以隨畫面大小自行伸縮 */
-  width: 100vw;
-  /* 高度 與 padding 為了讓設計接近參考網頁 */
-  height: 100px;
-  padding: 0 60px;
-  /* 使header保持在畫面最上面 */
-  position: fixed;
-  z-index: 10;
-  animation: headerLoad 1s ease 2s 1 alternate forwards;
-}
-
-@keyframes headerLoad {
-  0% {
-    top: 10%;
-  }
-  100% {
-    top: 0%;
-  }
-}
-
-.logo {
-  /* 讓圖片接近參考網頁大小 */
-  width: 133px;
-  transition: all 0.5s ease-out;
-}
-.logo:hover {
-  opacity: 0.6;
-  transform: scale(1.3, 1.3);
-}
-
-nav {
-  width: 40%;
-  margin-right: 120px;
-}
-
-.list {
-  height: 100%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.list a {
-  color: rgba(112, 111, 111, 0.904);
-  font-size: 16px;
-  letter-spacing: 2px;
-}
-
-.list a:hover {
-  color: rgb(26, 216, 211);
-}
-
-.search-label {
-  cursor: pointer;
-  background-image: url(images/FE_search_green.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 20px;
-  height: 20px;
-  transition: all 0.5s ease;
-}
-
-.search-label:hover {
-  transform: scale(1.3);
-}
-
-.search-checkbox {
-  visibility: hidden;
-  position: absolute;
-  right: 10%;
-}
-
-.search-checkbox:checked + .search-panel {
-  display: block;
-}
-
-.search-panel {
-  width: 100vw;
-  height: 50vh;
-  background-color: rgb(243, 243, 243);
-  position: fixed;
-  z-index: 10;
-  top: 100px;
-  left: 0px;
-  text-align: center;
-  padding-top: 50px;
-  display: none;
-}
-
-.search-panel::after {
-  content: '';
-  position: fixed;
-  display: block;
-  width: 100vw;
-  height: calc(50vh - 100px);
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
-.search-panel p {
-  font-size: 20px;
-  color: rgba(26, 216, 210);
-  margin-bottom: 15px;
-  letter-spacing: 3px;
-}
-
-.search-content {
-  background-color: white;
-  width: 60%;
-  height: 60px;
-  border-radius: 20px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.search-content button {
-  margin-right: 10px;
-  width: 25px;
-  height: 25px;
-  border: none;
-}
-
-.search-content input {
-  font-size: 18px;
-  width: 85%;
-  height: 30px;
-  margin: 0px 5px 0px 10px;
-  padding-left: 5px;
-  border: none;
-  outline: none;
-  letter-spacing: 2px;
-  flex-grow: 1;
-}
-
-.search-content .voiceBtn {
-  background-image: url(images/microphone.svg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  background-color: white;
-}
-
-.search-content .searchBtn {
-  background-image: url(images/FE_search_green.png);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  background-color: white;
-}
-
 main {
   /* 因應 header 的 position 而調整 */
   position: relative;
   top: 105px;
 }
 
-/* 背景圖片共同設定 */
-.container,
-::before {
-  width: 100%;
-  height: 65vh;
+.carousel {
+  background-image: url(images/rotate-img-3.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  text-align: center;
-  margin-bottom: 10px;
-  position: relative;
-}
-
-/* 背景圖片 */
-.first-background {
-  background-image: url(images/key-visual.jpg);
-}
-
-/* 將降低亮度的濾鏡函式設在偽元素，顯示在背景圖片之前，避免影響其他文字內容 */
-/* 加上 z-index，確保其他文字內容不會被擋住  */
-.second-background::before {
-  position: absolute;
-  z-index: -1;
-  display: block;
-  height: 100%;
-  content: '';
-  filter: brightness(50%);
-  background-attachment: fixed;
-  background-image: url(images/second-img.jpg);
-}
-
-.third-background::before {
-  position: absolute;
-  z-index: -1;
-  display: block;
-  height: 100%;
-  content: '';
-  filter: brightness(50%);
-  background-image: url(images/third-img.jpg);
-  /* 製造滾動視差 */
-  background-attachment: fixed;
-}
-
-.fourth-background {
-  background-image: url(images/15.jpg);
-  background-attachment: fixed;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.fifth-background {
-  background-image: url(images/five-img.jpg);
-  background-position-y: bottom;
-  height: 77vh;
-  display: flex;
-  justify-content: center;
-  align-items: end;
-}
-
-.content {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  line-height: 1.5;
-  /* position: relative;
-  z-index: 1; */
-}
-
-.content h2 {
-  color: white;
-  font-size: 38px;
-  font-weight: bold;
-  letter-spacing: 3px;
-}
-
-.content h2:hover {
-  transform: rotate(-5deg);
-}
-
-.content h3 {
-  color: white;
-  font-size: 24px;
-  letter-spacing: 10px;
-}
-
-.content h4 {
-  color: white;
-  font-size: 20px;
-  letter-spacing: 3px;
-  margin-bottom: 30px;
-}
-
-.content p {
-  color: white;
-  font-size: 18px;
-  letter-spacing: 3px;
-  margin: 9px;
-}
-
-.arrow {
-  transform: rotate(90deg);
-  width: 20px;
-  position: absolute;
-  left: 50%;
-  top: 85%;
-  animation-name: arrowMoving; /*動畫名稱(自訂)*/
-  animation-duration: 0.3s; /*一次完整動畫時間為?秒*/
-  animation-iteration-count: infinite; /*播放次數為無限次*/
-  animation-direction: alternate; /*播放方向為先正向再反向*/
-}
-
-@keyframes arrowMoving {
-  /*動畫名稱arrowMoving*/
-  0% {
-    top: 84%;
-  }
-  100% {
-    top: 86%;
-  }
-}
-
-.btn {
-  /* 使按鈕背景透明 */
-  background-color: transparent;
-  color: rgb(26, 216, 211);
-  border: 1px solid rgb(26, 216, 211);
-  border-radius: 5px;
-  font-size: 18px;
-  width: 126px;
-  padding: 3px 10px;
-  margin-top: 36px;
-  transition: all 1.2s ease-out;
-}
-
-.btn:hover {
-  transform: scale(1.2);
-  padding: 6px 10px;
-}
-
-.btn-class {
-  width: 227px;
-  margin: 18px;
-  padding: 4px 10px;
-}
-
-.card {
-  background-color: white;
-  width: 280px;
   height: 400px;
-  margin: 0px 40px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  line-height: 1.5;
   position: relative;
 }
 
-.card::after {
-  content: '';
-  border: 15px solid transparent;
-  border-left-color: rgb(26, 216, 211);
-  border-bottom-color: rgb(26, 216, 211);
-  position: absolute;
-  right: 0%;
-}
-
-.card img {
-  width: 40px;
-  margin-top: 30px;
-}
-
-.card h3 {
-  color: rgb(26, 216, 211);
-  font-size: 24px;
-  margin-top: 25px;
-}
-
-.card p {
-  line-height: 2;
-}
-
-.line {
-  border: 1px solid rgb(26, 216, 211);
-  width: 50px;
-  margin: 20px auto 16px auto;
-}
-
-.card .btn {
-  /* 使按鈕背景透明 */
-  background-color: rgb(26, 216, 211);
-  color: white;
-  padding: 6px 10px;
-  transition: none;
-}
-
-.card .btn:hover {
-  transform: none;
-  color: rgb(212, 246, 245);
-}
-
-.about {
-  max-width: 620px;
-  font-size: 18px;
-  line-height: 1.5;
-  color: white;
-  margin-bottom: 4%;
-  padding: 0 20px;
-}
-
-.about h3 {
-  font-size: 24px;
-}
-
-.about p {
-  text-align: left;
-  font-size: 18px;
-  margin-bottom: 30px;
-}
-
-.about-line {
-  border: 1px solid;
-  width: 20px;
-  margin: 20px auto 16px auto;
-}
-
-.test-img {
-  width: 80px;
-  position: fixed;
-  top: 74%;
-  right: 0px;
-  z-index: 1;
+.carousel:hover h3 {
   opacity: 0.8;
-  cursor: pointer;
-  transition: top 3s ease;
 }
 
-.test-img:hover {
-  opacity: 0.6;
-  top: 68%;
+.carousel h3 {
+  width: 250px;
+  line-height: 50px;
+  text-align: center;
+  background-color: rgba(112, 111, 111, 0.609);
+  color: white;
+  letter-spacing: 10px;
+  font-size: 24px;
+  position: absolute;
+  top: 50%;
+  left: calc(50vw - 100px);
+  border-radius: 5px;
 }
 
-.test-img.loaded {
-  animation: testLoad 2s ease 1s 1 alternate forwards;
+.classList {
+  height: 75px;
+  box-shadow: 0px 5px 5px 0px rgb(230, 227, 230);
 }
 
-@keyframes testLoad {
-  0% {
-    top: 20%;
-  }
-  100% {
-    top: 74%;
-  }
-}
-
-.go-top {
-  height: 150px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.go-top img {
-  width: 35px;
-  cursor: pointer;
-  transition: all 0.5s ease-out;
-}
-
-.go-top img:hover {
-  transform: scale(1.3);
-}
-
-footer {
-  position: relative;
-  top: 110px;
+.classList ul {
+  max-width: 50%;
+  min-width: 320px;
+  height: 100%;
+  margin: 0 auto;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  width: 100%;
-  height: 75px;
-  background-color: rgba(236, 236, 236, 0.811);
+  color: rgba(112, 111, 111, 0.904);
+  font-size: 16px;
 }
 
-footer a {
-  color: rgba(63, 58, 58, 0.812);
-  font-size: 13px;
-  letter-spacing: 2px;
+.classList li {
+  cursor: pointer;
 }
 
-.contact {
+.classList li:hover {
+  opacity: 0.6;
+}
+
+.card-panel {
+  max-width: 90%;
+  margin: 100px auto;
   display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card {
+  border: 1px solid rgb(26, 216, 211);
+  width: 320px;
+  height: 520px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.favorite {
+  align-self: flex-end;
+  height: 50px;
+  margin-right: 25px;
+  margin-top: 25px;
+}
+
+.card-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+  gap: 5px;
+}
+
+.card .location-icon {
+  width: 20px;
+}
+
+.card-content {
+  width: 250px;
+  margin: 0 auto;
+}
+
+.card-img {
+  width: 200px;
+  height: 150px;
+  overflow: hidden;
+  background-image: url(images/pic-1.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 5px;
+  transition: all 0.6s ease;
+}
+
+.card-img:hover {
+  opacity: 0.6;
+  background-size: 120%;
+}
+
+.card-content h4 {
+  font-size: 24px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  color: rgb(26, 216, 211);
+}
+
+.card-content p {
+  font-size: 16px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  line-height: 1.5;
+  color: black;
+}
+
+.card-content span {
+  color: rgb(26, 216, 211);
+  padding-right: 10px;
+  vertical-align: baseline;
+}
+
+.card-content div {
+  width: 175px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
   align-items: baseline;
 }
 
-.contact a:hover {
-  opacity: 0.6;
+.card-content h4:hover,
+.card-content p:hover,
+.card-content div:hover {
+  opacity: 0.5;
 }
 
-.contact span {
-  font-size: 13px;
-  color: rgba(26, 216, 210, 0.703);
-  font-weight: bold;
+.card-arrow {
+  width: 12px;
+  height: 12px;
+  background-image: url(images/arrow-right-one.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
-.contact p {
-  font-size: 13px;
-  letter-spacing: 3px;
-  padding-left: 20px;
-  color: rgba(63, 58, 58, 0.701);
+.card-content .read-more:hover {
+  transition: margin-right 1s ease;
+  opacity: 0.5;
+  margin-right: 25px;
 }
-
-.social-link img {
-  width: 30px;
-}
-
-.social-link img:hover {
-  opacity: 0.6;
-}
-
-.loading {
-  background-color: rgba(236, 236, 236);
-  width: 100%;
-  height: 100vh;
-  position: fixed;
-  z-index: 20;
-  top: 0;
-  transition: all 1.5s 1s linear;
-  border-bottom: 125px;
-  border-bottom-color: rgb(26, 216, 211);
-  border-bottom-style: solid;
-}
-
-.loading::before {
-  content: '';
-  background-image: url(images/FE_logo-4.png);
-  background-size: 80%;
-  width: 400px;
-  height: 200px;
-  position: fixed;
-  z-index: 25;
-  top: calc(50vh - 100px);
-  left: calc(50vw - 200px);
-  animation-name: loadingLogo;
-  animation-duration: 2s;
-  animation-iteration-count: 1;
-  animation-timing-function: ease-in-out;
-  animation-fill-mode: forwards;
-}
-
-.loading.loaded {
-  transform: translateY(-100%);
-  border-bottom-color: rgb(26, 216, 211);
-  border-bottom-style: solid;
-}
-
-@keyframes loadingLogo {
-  0% {
-    top: calc(35% - 100px);
-  }
-  50% {
-    top: 35%;
-  }
-  100% {
-    top: 65%;
-  }
-}
-/* RWD */
 
 @media screen and (max-width: 768px) {
-  header {
-    padding: 0px;
-  }
-  nav {
-    margin-right: 0px;
-  }
   .card {
-    width: 204px;
-    height: 270px;
+    border: none;
   }
-  .card img {
-    width: 27px;
-    margin-top: 30px;
-  }
-
-  .card h3 {
-    color: rgb(26, 216, 211);
-    font-size: 14px;
-    margin-top: 15px;
-  }
-
-  .card p {
-    line-height: 1.5;
-    font-size: 12px;
-  }
-
-  .card .btn {
-    font-size: 12px;
-    margin-top: 20px;
-  }
-
-  .line {
-    border: 1px solid rgb(26, 216, 211);
-    width: 30px;
-    margin: 12px auto 9px auto;
-  }
-  .fifth-background {
-    background-image: none;
-  }
-  .fifth-background::before {
-    position: absolute;
-    z-index: -1;
-    display: block;
-    height: 100%;
-    content: '';
-    filter: brightness(50%);
-    background-image: url(images/five-img.jpg);
-    top: 0;
-  }
-  footer {
-    height: 140px;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-evenly;
-  }
-  footer div {
-    padding-left: 20px;
-  }
-  footer .social-link {
-    position: absolute;
-    right: 20px;
-    bottom: 40px;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  header {
-    justify-content: unset;
-  }
-  nav {
-    flex-grow: 1;
-  }
-  .fourth-background {
-    flex-direction: column;
-    gap: 15px;
-  }
-  .content h2 {
-    font-size: 32px;
-  }
-  .content h3 {
-    font-size: 20px;
-  }
-  .content p {
-    font-size: 16px;
+  .card-content {
+    border-bottom: 1px solid rgb(26, 216, 211);
+    padding-bottom: 75px;
   }
 }

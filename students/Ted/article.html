@@ -6,20 +6,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Front-Enter - 前端轉職資訊</title>
   <link rel="stylesheet" href="article.css">
+  <link rel="stylesheet" href="layout.css">
+  <link rel="icon" href="./images/favicon.ico" type="image/x-icon" />
 </head>
 
 <body>
   <header>
-    <a href="#">
+    <a href="./index.html">
       <img src="./images/FE_logo-4.png" alt="logo" class="logo">
     </a>
     <nav>
       <ul class="list">
-        <li><a href="#">探索</a></li>
+        <li><a href="./article.html">探索</a></li>
         <li><a href="#">技能樹</a></li>
         <li><a href="#">登入</a></li>
-        <!-- <img src="./images/FE_search_green.png" alt="search" class="search"> -->
-
         <label for="checkbox" class="search-label"></label>
       </ul>
     </nav>
@@ -35,60 +35,181 @@
   </div>
   <main>
     <section>
-      <div class="container first-background">
-        <div class="content">
-          <h2>FRONT-ENTER</h2>
-          <h3>前端轉職資訊</h3>
-        </div>
-        <img src="./images/next.svg" alt="arrow" class="arrow">
-      </div>
-      <div class="container second-background">
-        <div class="content">
-          <p>想知道自己適合什麼學習環境嗎？</p>
-          <p>可以點擊按鈕測測看哦！</p>
-          <button type="button" class="btn">測驗 GO</button>
+      <div>
+        <div class="carousel">
+          <h3>蒐羅前端學校</h3>
         </div>
       </div>
-      <div class="container third-background">
-        <div class="content">
-          <h4>教室精選</h4>
-          <button type="button" class="btn btn-class">AppWorks School</button>
-          <button type="button" class="btn btn-class">彭彭的課程教學</button>
-          <button type="button" class="btn btn-class">五倍紅寶石</button>
-        </div>
+      <div class="classList">
+        <ul>
+          <li>全部</li>
+          <li>小班制</li>
+          <li>放養制</li>
+          <li>一對一</li>
+        </ul>
       </div>
-      <div class="container fourth-background">
+      <div class="card-panel">
         <div class="card">
-          <img src="./images/FE_pen.png" alt="">
-          <h3>探索</h3>
-          <div class="line"></div>
-          <p>我們提供公正的資訊，<br>
-            幫您順利轉職，<br>
-            並追蹤最新的業界動態。
-          </p>
-          <button type="button" class="btn">找學校</button>
+          <div class="favorite"></div>
+          <div class="card-header">
+            <img src="images/location_icon_one.png" class="location-icon">
+            <p>台北</p>
+          </div>
+          <div class="card-content">
+            <a href="#">
+              <div class="card-img"></div>
+              <h4>彭彭的課程教學1</h4>
+              <p>彭彭喜歡技術、更喜歡與人互動，是位略懂商業經營和行銷策略的務實創業者。</p>
+              <div>
+                <span class="read-more">read more</span>
+                <span class="card-arrow"></span>
+              </div>
+            </a>
+          </div>
         </div>
         <div class="card">
-          <img src="./images/FE_pen.png" alt="">
-          <h3>技能樹</h3>
-          <div class="line"></div>
-          <p>前端包含哪些技術？<br>
-            你又學會了哪些？<br>
-            趕緊點進來試試看。
-          </p>
-          <button type="button" class="btn">技能樹</button>
+          <div class="favorite"></div>
+          <div class="card-header">
+            <img src="images/location_icon_one.png" class="location-icon">
+            <p>台北</p>
+          </div>
+          <div class="card-content">
+            <a href="#">
+              <div class="card-img"></div>
+              <h4>彭彭的課程教學2</h4>
+              <p>彭彭喜歡技術、更喜歡與人互動，是位略懂商業經營和行銷策略的務實創業者。</p>
+              <div>
+                <span class="read-more">read more</span>
+                <span class="card-arrow"></span>
+              </div>
+            </a>
+          </div>
         </div>
-      </div>
-      <div class="container fifth-background">
-        <div class="about">
-          <h3>關於</h3>
-          <div class="about-line"></div>
-          <p>
-            近年來，社會對於軟體工程師的需求急速增加，全台各地的補習也如雨後春筍般開業， 然而人的時間有限，要如何找到適合自己的學習環境？
-          </p>
-          <p>
-            「Front-Enter」特別針對前端工程的學習資源，進行蒐集、分類，期待讓有志成為前端工程師的人，找到最適合自己的學習環境。
-          </p>
+        <div class="card">
+          <div class="favorite"></div>
+          <div class="card-header">
+            <img src="images/location_icon_one.png" class="location-icon">
+            <p>台北</p>
+          </div>
+          <div class="card-content">
+            <a href="#">
+              <div class="card-img"></div>
+              <h4>彭彭的課程教學3</h4>
+              <p>彭彭喜歡技術、更喜歡與人互動，是位略懂商業經營和行銷策略的務實創業者。</p>
+              <div>
+                <span class="read-more">read more</span>
+                <span class="card-arrow"></span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="favorite"></div>
+          <div class="card-header">
+            <img src="images/location_icon_one.png" class="location-icon">
+            <p>台北</p>
+          </div>
+          <div class="card-content">
+            <a href="#">
+              <div class="card-img"></div>
+              <h4>彭彭的課程教學4</h4>
+              <p>彭彭喜歡技術、更喜歡與人互動，是位略懂商業經營和行銷策略的務實創業者。</p>
+              <div>
+                <span class="read-more">read more</span>
+                <span class="card-arrow"></span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="favorite"></div>
+          <div class="card-header">
+            <img src="images/location_icon_one.png" class="location-icon">
+            <p>台北</p>
+          </div>
+          <div class="card-content">
+            <a href="#">
+              <div class="card-img"></div>
+              <h4>彭彭的課程教學5</h4>
+              <p>彭彭喜歡技術、更喜歡與人互動，是位略懂商業經營和行銷策略的務實創業者。</p>
+              <div>
+                <span class="read-more">read more</span>
+                <span class="card-arrow"></span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="favorite"></div>
+          <div class="card-header">
+            <img src="images/location_icon_one.png" class="location-icon">
+            <p>台北</p>
+          </div>
+          <div class="card-content">
+            <a href="#">
+              <div class="card-img"></div>
+              <h4>彭彭的課程教學6</h4>
+              <p>彭彭喜歡技術、更喜歡與人互動，是位略懂商業經營和行銷策略的務實創業者。</p>
+              <div>
+                <span class="read-more">read more</span>
+                <span class="card-arrow"></span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="favorite"></div>
+          <div class="card-header">
+            <img src="images/location_icon_one.png" class="location-icon">
+            <p>台北</p>
+          </div>
+          <div class="card-content">
+            <a href="#">
+              <div class="card-img"></div>
+              <h4>彭彭的課程教學7</h4>
+              <p>彭彭喜歡技術、更喜歡與人互動，是位略懂商業經營和行銷策略的務實創業者。</p>
+              <div>
+                <span class="read-more">read more</span>
+                <span class="card-arrow"></span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="favorite"></div>
+          <div class="card-header">
+            <img src="images/location_icon_one.png" class="location-icon">
+            <p>台北</p>
+          </div>
+          <div class="card-content">
+            <a href="#">
+              <div class="card-img"></div>
+              <h4>彭彭的課程教學8</h4>
+              <p>彭彭喜歡技術、更喜歡與人互動，是位略懂商業經營和行銷策略的務實創業者。</p>
+              <div>
+                <span class="read-more">read more</span>
+                <span class="card-arrow"></span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="favorite"></div>
+          <div class="card-header">
+            <img src="images/location_icon_one.png" class="location-icon">
+            <p>台北</p>
+          </div>
+          <div class="card-content">
+            <a href="#">
+              <div class="card-img"></div>
+              <h4>彭彭的課程教學9</h4>
+              <p>彭彭喜歡技術、更喜歡與人互動，是位略懂商業經營和行銷策略的務實創業者。</p>
+              <div>
+                <span class="read-more">read more</span>
+                <span class="card-arrow"></span>
+              </div>
+            </a>
+          </div>
         </div>
       </div>
     </section>
