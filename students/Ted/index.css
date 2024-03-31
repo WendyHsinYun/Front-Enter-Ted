@@ -1,187 +1,3 @@
-/* CSS reset */
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
-  display: block;
-}
-body {
-  line-height: 1;
-}
-ol,
-ul {
-  list-style: none;
-}
-blockquote,
-q {
-  quotes: none;
-}
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-  content: '';
-  content: none;
-}
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-body {
-  /* 改變整個網頁的盒模型計算方式，避免 header 加上 padding 後超出頁面形成捲軸 */
-  box-sizing: border-box;
-  font-family: 'Noto Sans TC', '華康黑體', '微軟正黑體', arial, sans-serif;
-  position: relative;
-}
-
-a {
-  /* 清除所有超連結的下底線 */
-  text-decoration: none;
-}
-
-header {
-  /* 將 nav 改成橫式排版，並拉開左右區塊的距離 */
-  display: flex;
-  justify-content: space-between;
-  /* 垂直置中 */
-  align-items: center;
-  /* 設定背景顏色與透明度 */
-  background: white;
-  opacity: 0.8;
-  /* 寬度用百分比設定，讓他可以隨畫面大小自行伸縮 */
-  width: 100vw;
-  /* 高度 與 padding 為了讓設計接近參考網頁 */
-  height: 100px;
-  padding: 0 60px;
-  /* 使header保持在畫面最上面 */
-  position: fixed;
-  z-index: 10;
-}
-
-.logo {
-  /* 讓圖片接近參考網頁大小 */
-  width: 133px;
-}
-
-nav {
-  width: 40%;
-  margin-right: 120px;
-}
-
-.list {
-  height: 100%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.list a {
-  color: rgba(112, 111, 111, 0.904);
-  font-size: 16px;
-  letter-spacing: 2px;
-}
-
-.search {
-  width: 20px;
-}
-
 main {
   /* 因應 header 的 position 而調整 */
   position: relative;
@@ -294,7 +110,6 @@ main {
 .arrow {
   transform: rotate(90deg);
   width: 20px;
-  /* margin-top: 30vh; 影響到上面的字 */
   position: absolute;
   left: 50%;
   top: 85%;
@@ -324,6 +139,12 @@ main {
   width: 126px;
   padding: 3px 10px;
   margin-top: 36px;
+  transition: all 1.2s ease-out;
+}
+
+.btn:hover {
+  transform: scale(1.2);
+  padding: 6px 10px;
 }
 
 .btn-class {
@@ -333,22 +154,29 @@ main {
 }
 
 .card {
-  background-image: url(images/FE_white.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 340px;
-  height: 450px;
-  margin: 0px 10px;
+  background-color: white;
+  width: 280px;
+  height: 400px;
+  margin: 0px 40px;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   align-items: center;
   line-height: 1.5;
+  position: relative;
+}
+
+.card::after {
+  content: '';
+  border: 15px solid transparent;
+  border-left-color: rgb(26, 216, 211);
+  border-bottom-color: rgb(26, 216, 211);
+  position: absolute;
+  right: 0%;
 }
 
 .card img {
-  width: 45px;
-  margin-top: 50px;
+  width: 40px;
+  margin-top: 30px;
 }
 
 .card h3 {
@@ -372,6 +200,12 @@ main {
   background-color: rgb(26, 216, 211);
   color: white;
   padding: 6px 10px;
+  transition: none;
+}
+
+.card .btn:hover {
+  transform: none;
+  color: rgb(212, 246, 245);
 }
 
 .about {
@@ -380,7 +214,6 @@ main {
   line-height: 1.5;
   color: white;
   margin-bottom: 4%;
-  /* margin-bottom: 80px; */
   padding: 0 20px;
 }
 
@@ -400,72 +233,9 @@ main {
   margin: 20px auto 16px auto;
 }
 
-.test-img {
-  width: 80px;
-  position: fixed;
-  top: 72%;
-  right: 0px;
-  z-index: 1;
-  opacity: 0.8;
-}
-
-.go-top {
-  height: 150px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.go-top img {
-  width: 35px;
-}
-
-footer {
-  position: relative;
-  top: 110px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 100%;
-  height: 75px;
-  background-color: rgba(236, 236, 236, 0.811);
-}
-
-footer a {
-  color: rgba(63, 58, 58, 0.812);
-  font-size: 13px;
-  letter-spacing: 2px;
-}
-
-.contact {
-  display: flex;
-  align-items: baseline;
-}
-
-.contact span {
-  font-size: 13px;
-  color: rgba(26, 216, 210, 0.703);
-  font-weight: bold;
-}
-
-.contact p {
-  font-size: 13px;
-  letter-spacing: 3px;
-  padding-left: 20px;
-  color: rgba(63, 58, 58, 0.701);
-}
-
-.social-link img {
-  width: 30px;
-}
+/* RWD */
 
 @media screen and (max-width: 768px) {
-  header {
-    padding: 0px;
-  }
-  nav {
-    margin-right: 0px;
-  }
   .card {
     width: 204px;
     height: 270px;
@@ -509,33 +279,13 @@ footer a {
     background-image: url(images/five-img.jpg);
     top: 0;
   }
-  footer {
-    height: 140px;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-evenly;
-  }
-  footer div {
-    padding-left: 20px;
-  }
-  footer .social-link {
-    position: absolute;
-    right: 20px;
-    bottom: 40px;
-  }
 }
 
 @media screen and (max-width: 480px) {
-  header {
-    justify-content: unset;
-  }
-  nav {
-    flex-grow: 1;
-  }
   .fourth-background {
     flex-direction: column;
+    gap: 15px;
   }
-
   .content h2 {
     font-size: 32px;
   }
