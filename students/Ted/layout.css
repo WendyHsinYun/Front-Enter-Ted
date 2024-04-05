@@ -286,7 +286,7 @@ nav {
   flex-grow: 1;
 }
 
-.search-content .voiceBtn {
+.search-content .voice-btn {
   background-image: url(images/microphone.svg);
   background-repeat: no-repeat;
   background-position: center;
@@ -294,7 +294,7 @@ nav {
   background-color: white;
 }
 
-.search-content .searchBtn {
+.search-content .search-btn {
   background-image: url(images/FE_search_green.png);
   background-repeat: no-repeat;
   background-position: center;
