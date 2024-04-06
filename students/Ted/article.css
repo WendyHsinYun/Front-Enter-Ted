@@ -4,20 +4,29 @@ main {
   top: 105px;
 }
 
-.carousel {
-  background-image: url(images/rotate-img-3.jpg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+.slider {
   height: 400px;
   position: relative;
 }
 
-.carousel:hover h3 {
+.slide {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+.slider:hover h3 {
   opacity: 0.8;
 }
 
-.carousel h3 {
+.slider h3 {
   width: 250px;
   line-height: 50px;
   text-align: center;
@@ -31,12 +40,12 @@ main {
   border-radius: 5px;
 }
 
-.classList {
+.class-type {
   height: 75px;
   box-shadow: 0px 5px 5px 0px rgb(230, 227, 230);
 }
 
-.classList ul {
+.class-type ul {
   max-width: 50%;
   min-width: 320px;
   height: 100%;
@@ -48,12 +57,16 @@ main {
   font-size: 16px;
 }
 
-.classList li {
+.class-type li {
   cursor: pointer;
 }
 
-.classList li:hover {
+.class-type li:hover {
   opacity: 0.6;
+}
+
+.class-type li.active {
+  color: rgb(26, 216, 211);
 }
 
 .card-panel {
@@ -63,6 +76,11 @@ main {
   justify-content: center;
   flex-wrap: wrap;
   gap: 20px;
+}
+
+/* 搜尋不到資料時顯示的文字 */
+.card-panel .wrong-msg {
+  font-size: 24px;
 }
 
 .card {
@@ -93,26 +111,36 @@ main {
   width: 20px;
 }
 
+.card .location {
+  cursor: pointer;
+}
+
+.card .location:hover {
+  opacity: 0.6;
+}
+
 .card-content {
   width: 250px;
   margin: 0 auto;
 }
 
-.card-img {
+.img-container {
   width: 200px;
   height: 150px;
+  margin: 0 auto;
   overflow: hidden;
-  background-image: url(images/pic-1.jpg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+}
+
+.card-img {
+  width: 100%;
+  object-fit: cover;
   border-radius: 5px;
   transition: all 0.6s ease;
 }
 
 .card-img:hover {
   opacity: 0.6;
-  background-size: 120%;
+  transform: scale(1.2);
 }
 
 .card-content h4 {
@@ -136,7 +164,7 @@ main {
   vertical-align: baseline;
 }
 
-.card-content div {
+.card-text {
   width: 175px;
   margin: 0 auto;
   display: flex;
