@@ -1,0 +1,19 @@
+$primary-color: rgb(26, 216, 211);
+
+@mixin background-setup($size: cover) {
+  background-size: $size;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+@mixin tablet {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media screen and (max-width: 480px) {
+    @content;
+  }
+}

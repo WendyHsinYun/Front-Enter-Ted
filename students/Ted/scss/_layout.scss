@@ -1,0 +1,314 @@
+body {
+  /* 改變整個網頁的盒模型計算方式，避免 header 加上 padding 後超出頁面形成捲軸 */
+  box-sizing: border-box;
+  font-family: 'Noto Sans TC', '華康黑體', '微軟正黑體', arial, sans-serif;
+  position: relative;
+}
+
+a {
+  /* 清除所有超連結的下底線 */
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  opacity: 0.8;
+  width: 100vw;
+  height: 100px;
+  padding: 0 60px;
+  position: fixed;
+  z-index: 10;
+  animation: headerLoad 1s ease 2s 1 alternate forwards;
+  @keyframes headerLoad {
+    0% {
+      top: 10%;
+    }
+    100% {
+      top: 0%;
+    }
+  }
+  @include tablet {
+    padding: 0px;
+  }
+  @include mobile {
+    justify-content: unset;
+  }
+}
+
+.logo {
+  /* 讓圖片接近參考網頁大小 */
+  width: 133px;
+  transition: all 0.5s ease-out;
+  &:hover {
+    opacity: 0.6;
+    transform: scale(1.3, 1.3);
+  }
+}
+
+nav {
+  width: 40%;
+  margin-right: 120px;
+  @include tablet {
+    margin-right: 0px;
+  }
+  @include mobile {
+    flex-grow: 1;
+  }
+}
+
+.list {
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  a {
+    color: rgba(112, 111, 111, 0.904);
+    font-size: 16px;
+    letter-spacing: 2px;
+    &:hover {
+      color: $primary-color;
+    }
+  }
+}
+
+.search-label {
+  cursor: pointer;
+  background-image: url(../images/FE_search_green.png);
+  @include background-setup;
+  width: 20px;
+  height: 20px;
+  transition: all 0.5s ease;
+  &:hover {
+    transform: scale(1.3);
+  }
+}
+
+.search-checkbox {
+  visibility: hidden;
+  position: absolute;
+  right: 10%;
+  &:checked + .search-panel {
+    display: block;
+  }
+}
+
+.search-panel {
+  width: 100vw;
+  height: 50vh;
+  background-color: rgb(243, 243, 243);
+  position: fixed;
+  z-index: 10;
+  top: 100px;
+  left: 0px;
+  text-align: center;
+  padding-top: 50px;
+  display: none;
+  &::after {
+    content: '';
+    position: fixed;
+    display: block;
+    width: 100vw;
+    height: calc(50vh - 100px);
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  p {
+    font-size: 20px;
+    color: rgba(26, 216, 210);
+    margin-bottom: 15px;
+    letter-spacing: 3px;
+  }
+}
+
+.search-content {
+  background-color: white;
+  width: 60%;
+  height: 60px;
+  border-radius: 20px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  button {
+    margin-right: 10px;
+    width: 25px;
+    height: 25px;
+    border: none;
+  }
+  input {
+    font-size: 18px;
+    width: 85%;
+    height: 30px;
+    margin: 0px 5px 0px 10px;
+    padding-left: 5px;
+    border: none;
+    outline: none;
+    letter-spacing: 2px;
+    flex-grow: 1;
+  }
+  .voice-btn {
+    background-image: url(../images/microphone.svg);
+    background-color: white;
+    @include background-setup;
+  }
+  .search-btn {
+    background-image: url(../images/FE_search_green.png);
+    background-color: white;
+    @include background-setup;
+  }
+}
+
+.test-img {
+  width: 80px;
+  position: fixed;
+  top: 74%;
+  right: 0px;
+  z-index: 1;
+  opacity: 0.8;
+  cursor: pointer;
+  transition: top 3s ease;
+  &:hover {
+    opacity: 0.6;
+    top: 68%;
+  }
+  &.loaded {
+    animation: testLoad 2s ease 1s 1 alternate;
+    @keyframes testLoad {
+      0% {
+        top: 20%;
+      }
+      100% {
+        top: 74%;
+      }
+    }
+  }
+}
+
+.go-top {
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  img {
+    width: 35px;
+    cursor: pointer;
+    transition: all 0.5s ease-out;
+    &:hover {
+      transform: scale(1.3);
+    }
+  }
+}
+
+main {
+  /* 因應 header 的 position 而調整 */
+  position: relative;
+  top: 105px;
+}
+
+footer {
+  position: relative;
+  top: 110px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 75px;
+  background-color: rgba(236, 236, 236, 0.811);
+  a {
+    color: rgba(63, 58, 58, 0.812);
+    font-size: 13px;
+    letter-spacing: 2px;
+  }
+  @include tablet {
+    height: 140px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    div {
+      padding-left: 20px;
+    }
+    .social-link {
+      position: absolute;
+      right: 20px;
+      bottom: 40px;
+    }
+  }
+}
+
+.contact {
+  display: flex;
+  align-items: baseline;
+  a:hover {
+    opacity: 0.6;
+  }
+  span {
+    font-size: 13px;
+    color: rgba(26, 216, 210, 0.703);
+    font-weight: bold;
+  }
+  p {
+    font-size: 13px;
+    letter-spacing: 3px;
+    padding-left: 20px;
+    color: rgba(63, 58, 58, 0.701);
+  }
+}
+
+.social-link img {
+  width: 30px;
+  &:hover {
+    opacity: 0.6;
+  }
+}
+
+.loading {
+  background-color: rgba(236, 236, 236);
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  z-index: 20;
+  top: 0;
+  transition: all 1.5s 1s linear;
+  border-bottom: 125px;
+  border-bottom-color: $primary-color;
+  border-bottom-style: solid;
+  &::before {
+    content: '';
+    background-image: url(../images/FE_logo-4.png);
+    @include background-setup(80%);
+    width: 400px;
+    height: 200px;
+    position: fixed;
+    z-index: 25;
+    top: calc(50vh - 100px);
+    left: calc(50vw - 200px);
+    animation-name: loadingLogo;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    @keyframes loadingLogo {
+      0% {
+        top: calc(35% - 100px);
+      }
+      50% {
+        top: 35%;
+      }
+      100% {
+        top: 65%;
+      }
+    }
+  }
+  &.loaded {
+    transform: translateY(-100%);
+    border-bottom-color: $primary-color;
+    border-bottom-style: solid;
+  }
+}
