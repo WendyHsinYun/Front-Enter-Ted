@@ -1,0 +1,260 @@
+/* 背景圖片共同設定 */
+.container,
+.container::before {
+  width: 100%;
+  height: 65vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+/* 背景圖片 */
+.first-background {
+  background-image: url(../images/key-visual.jpg);
+}
+
+/* 將降低亮度的濾鏡函式設在偽元素，顯示在背景圖片之前，避免影響其他文字內容 */
+/* 加上 z-index，確保其他文字內容不會被擋住  */
+.second-background::before {
+  position: absolute;
+  z-index: -1;
+  display: block;
+  height: 100%;
+  content: '';
+  filter: brightness(50%);
+  background-attachment: fixed;
+  background-image: url(../images/second-img.jpg);
+}
+
+.third-background::before {
+  position: absolute;
+  z-index: -1;
+  display: block;
+  height: 100%;
+  content: '';
+  filter: brightness(50%);
+  background-image: url(../images/third-img.jpg);
+  /* 製造滾動視差 */
+  background-attachment: fixed;
+}
+
+.fourth-background {
+  background-image: url(../images/15.jpg);
+  background-attachment: fixed;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include mobile {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
+.fifth-background {
+  background-image: url(../images/five-img.jpg);
+  background-position-y: bottom;
+  height: 77vh;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  @include tablet {
+    background-image: none;
+    &::before {
+      position: absolute;
+      z-index: -1;
+      display: block;
+      height: 100%;
+      content: '';
+      filter: brightness(50%);
+      background-image: url(../images/five-img.jpg);
+      top: 0;
+    }
+  }
+}
+
+.content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  line-height: 1.5;
+  h2 {
+    color: white;
+    font-size: 38px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    &:hover {
+      transform: rotate(-5deg);
+    }
+  }
+  h3 {
+    color: white;
+    font-size: 24px;
+    letter-spacing: 10px;
+  }
+  h4 {
+    color: white;
+    font-size: 20px;
+    letter-spacing: 3px;
+    margin-bottom: 30px;
+  }
+  p {
+    color: white;
+    font-size: 18px;
+    letter-spacing: 3px;
+    margin: 9px;
+  }
+  @include mobile {
+    h2 {
+      font-size: 32px;
+    }
+    h3 {
+      font-size: 20px;
+    }
+    p {
+      font-size: 16px;
+    }
+  }
+}
+
+.arrow {
+  transform: rotate(90deg);
+  width: 20px;
+  position: absolute;
+  left: 50%;
+  top: 85%;
+  animation: arrowMoving 0.3s infinite alternate;
+  @keyframes arrowMoving {
+    /*動畫名稱arrowMoving*/
+    0% {
+      top: 84%;
+    }
+    100% {
+      top: 86%;
+    }
+  }
+}
+
+.btn {
+  /* 使按鈕背景透明 */
+  background-color: transparent;
+  color: $primary-color;
+  border: 1px solid $primary-color;
+  border-radius: 5px;
+  font-size: 18px;
+  width: 126px;
+  padding: 3px 10px;
+  margin-top: 36px;
+  transition: all 1.2s ease-out;
+  &:hover {
+    transform: scale(1.2);
+    padding: 6px 10px;
+  }
+}
+
+.btn-class {
+  width: 227px;
+  margin: 18px;
+  padding: 4px 10px;
+}
+
+.service {
+  background-color: white;
+  width: 280px;
+  height: 400px;
+  margin: 0px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.5;
+  position: relative;
+  &::after {
+    content: '';
+    border: 15px solid transparent;
+    border-left-color: $primary-color;
+    border-bottom-color: $primary-color;
+    position: absolute;
+    right: 0%;
+  }
+  img {
+    width: 40px;
+    margin-top: 30px;
+  }
+  h3 {
+    color: $primary-color;
+    font-size: 24px;
+    margin-top: 25px;
+  }
+  p {
+    line-height: 2;
+  }
+  .btn {
+    background-color: $primary-color;
+    color: white;
+    padding: 6px 10px;
+    transition: none;
+    &:hover {
+      transform: none;
+      color: rgb(212, 246, 245);
+    }
+  }
+  @include tablet {
+    width: 204px;
+    height: 270px;
+    img {
+      width: 27px;
+      margin-top: 30px;
+    }
+    h3 {
+      color: $primary-color;
+      font-size: 14px;
+      margin-top: 15px;
+    }
+    p {
+      line-height: 1.5;
+      font-size: 12px;
+    }
+    .btn {
+      font-size: 12px;
+      margin-top: 20px;
+    }
+  }
+}
+
+.line {
+  border: 1px solid $primary-color;
+  width: 50px;
+  margin: 20px auto 16px auto;
+  @include tablet {
+    width: 30px;
+    margin: 12px auto 9px auto;
+  }
+}
+
+.about {
+  max-width: 620px;
+  font-size: 18px;
+  line-height: 1.5;
+  color: white;
+  margin-bottom: 4%;
+  padding: 0 20px;
+  h3 {
+    font-size: 24px;
+  }
+  p {
+    text-align: left;
+    font-size: 18px;
+    margin-bottom: 30px;
+  }
+}
+
+.about-line {
+  border: 1px solid;
+  width: 20px;
+  margin: 20px auto 16px auto;
+}

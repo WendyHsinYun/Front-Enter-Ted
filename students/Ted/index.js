@@ -115,20 +115,17 @@ searchBtn.addEventListener('click', function () {
 var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition
 const recognition = new SpeechRecognition()
 
-
 recognition.lang = 'zh-TW'
 recognition.interimResults = false
 recognition.maxAlternatives = 1
 
 function startDictation() {
   recognition.start()
-
   recognition.onresult = function (event) {
     const transcript = event.results[0][0].transcript
     console.log(transcript)
     keyword.value = transcript
   }
-
   recognition.onerror = function (event) {
     console.error('語音識別錯誤', event.error)
   }
