@@ -20,9 +20,8 @@ header {
   align-items: center;
   background: white;
   opacity: 0.8;
-  width: 100vw;
+  width: 100%;
   height: 100px;
-  padding: 0 60px;
   position: fixed;
   z-index: 10;
   animation: headerLoad 1s ease 2s 1 alternate forwards;
@@ -34,9 +33,6 @@ header {
       top: 0%;
     }
   }
-  @include tablet {
-    padding: 0px;
-  }
   @include mobile {
     justify-content: unset;
   }
@@ -46,6 +42,7 @@ header {
   /* 讓圖片接近參考網頁大小 */
   width: 133px;
   transition: all 0.5s ease-out;
+  padding-left: 30px;
   &:hover {
     opacity: 0.6;
     transform: scale(1.3, 1.3);
@@ -54,10 +51,7 @@ header {
 
 nav {
   width: 40%;
-  margin-right: 120px;
-  @include tablet {
-    margin-right: 0px;
-  }
+  padding-right: 30px;
   @include mobile {
     flex-grow: 1;
   }

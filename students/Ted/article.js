@@ -1,10 +1,3 @@
-const topBtn = document.querySelector('.top-btn')
-const loading = document.querySelector('.loading')
-const testLoad = document.querySelector('.test-img')
-const checkBox = document.querySelector('#checkbox')
-const keyword = document.querySelector('.keyword')
-const voiceBtn = document.querySelector('.voice-btn')
-const searchBtn = document.querySelector('.search-btn')
 const classType = document.querySelector('.class-type')
 const cardPanel = document.querySelector('.card-panel')
 
@@ -31,11 +24,13 @@ function cardRender(data) {
         <div class="card">
           <div class="favorite"></div>
           <div class="card-header">
-            <img src="images/location_icon_one.png" class="location-icon">
+            <a href="content.html?id=${item.creatTime}">
+              <img src="images/location_icon_one.png" class="location-icon">
+            </a>
             <p class="location">${item.city}</p>
           </div>
           <div class="card-content">
-            <a href="#">
+            <a href="content.html?id=${item.creatTime}">
               <div class="img-container">
                 <img
                   src="${item.squareUrl}"
@@ -59,15 +54,6 @@ function cardRender(data) {
   }
   cardPanel.innerHTML = template
 }
-
-window.addEventListener('load', function () {
-  loading.classList.add('loaded')
-  testLoad.classList.add('loaded')
-})
-
-topBtn.addEventListener('click', function () {
-  window.scrollTo({ top: 0, behavior: 'smooth' })
-})
 
 classType.addEventListener('click', function (e) {
   if (e.target.tagName === 'LI') {
@@ -99,36 +85,3 @@ function slide() {
   slides[slideIndex].classList.add('active')
 }
 setInterval(slide, 5000)
-
-function search() {
-  let filterData = articleList.filter(item => item.name.includes(keyword.value))
-  cardRender(filterData)
-}
-
-searchBtn.addEventListener('click', function () {
-  search()
-  checkBox.checked = false
-  keyword.value = ''
-})
-
-// 語音輸入
-var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition
-const recognition = new SpeechRecognition()
-
-recognition.lang = 'zh-TW'
-recognition.interimResults = false
-recognition.maxAlternatives = 1
-
-function startDictation() {
-  recognition.start()
-  recognition.onresult = function (event) {
-    const transcript = event.results[0][0].transcript
-    console.log(transcript)
-    keyword.value = transcript
-  }
-  recognition.onerror = function (event) {
-    console.error('語音識別錯誤', event.error)
-  }
-}
-
-voiceBtn.addEventListener('click', startDictation)
