@@ -153,9 +153,8 @@ header {
   align-items: center;
   background: white;
   opacity: 0.8;
-  width: 100vw;
+  width: 100%;
   height: 100px;
-  padding: 0 60px;
   position: fixed;
   z-index: 10;
   animation: headerLoad 1s ease 2s 1 alternate forwards;
@@ -168,11 +167,6 @@ header {
     top: 0%;
   }
 }
-@media screen and (max-width: 768px) {
-  header {
-    padding: 0px;
-  }
-}
 @media screen and (max-width: 480px) {
   header {
     justify-content: unset;
@@ -183,6 +177,7 @@ header {
   /* 讓圖片接近參考網頁大小 */
   width: 133px;
   transition: all 0.5s ease-out;
+  padding-left: 30px;
 }
 .logo:hover {
   opacity: 0.6;
@@ -191,12 +186,7 @@ header {
 
 nav {
   width: 40%;
-  margin-right: 120px;
-}
-@media screen and (max-width: 768px) {
-  nav {
-    margin-right: 0px;
-  }
+  padding-right: 30px;
 }
 @media screen and (max-width: 480px) {
   nav {
@@ -915,4 +905,170 @@ footer a {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.banner {
+  height: 400px;
+  position: relative;
+}
+.banner .banner-img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.banner .banner-text {
+  width: 250px;
+  line-height: 50px;
+  text-align: center;
+  background-color: rgba(112, 111, 111, 0.6);
+  color: white;
+  font-weight: 600;
+  letter-spacing: 10px;
+  font-size: 24px;
+  position: absolute;
+  top: 50%;
+  left: calc(50vw - 100px);
+  border-radius: 5px;
+}
+
+.content-box {
+  display: flex;
+  width: 95%;
+  margin: 100px auto 0px auto;
+}
+@media screen and (max-width: 1200px) {
+  .content-box {
+    flex-direction: column;
+    align-items: center;
+  }
+  .content-box .hide-img {
+    display: none;
+  }
+}
+
+.content-img {
+  width: 40%;
+  text-align: center;
+  margin: 0px 10px;
+}
+.content-img img {
+  width: 400px;
+  height: 300px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-bottom: 35px;
+  border-radius: 5px;
+}
+.content-img img:hover {
+  transition: all 1s ease-out;
+  width: 440px;
+  height: 330px;
+}
+@media screen and (max-width: 480px) {
+  .content-img img {
+    width: 264px;
+    height: auto;
+  }
+  .content-img img:hover {
+    transition: all 1s ease-out;
+    width: 250px;
+    height: auto;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .content-img {
+    width: 100%;
+  }
+}
+
+.content-intro {
+  width: 50%;
+  margin: 0px 10px;
+  font-size: 16px;
+  letter-spacing: 3px;
+  line-height: 28px;
+  color: rgb(112, 111, 111);
+}
+@media screen and (max-width: 1200px) {
+  .content-intro {
+    width: 90%;
+  }
+}
+.content-intro .intro-title {
+  font-size: 20px;
+  color: rgb(26, 216, 211);
+  font-weight: 700;
+}
+
+.table {
+  margin: 100px 0px;
+}
+.table .table-title {
+  text-align: center;
+  color: rgb(26, 216, 211);
+  font-size: 18px;
+}
+.table .table-content {
+  margin: 0 auto;
+  max-width: 400px;
+}
+.table .table-content tr {
+  border-bottom: 1px solid rgba(112, 111, 111, 0.3);
+  font-size: 16px;
+  line-height: 70px;
+}
+.table .table-content th {
+  color: rgb(26, 216, 211);
+  font-weight: 700;
+  padding-right: 50px;
+}
+@media screen and (max-width: 480px) {
+  .table .table-content th {
+    padding-right: 20px;
+  }
+  .table .table-content td {
+    text-align: center;
+  }
+}
+
+.image-modal {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  z-index: 20;
+  top: 0;
+  left: 0;
+  display: none;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.left-arrow {
+  height: 1px;
+  border: 30px solid gray;
+  border-bottom-color: transparent;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  cursor: pointer;
+}
+
+.right-arrow {
+  height: 1px;
+  border: 30px solid gray;
+  border-bottom-color: transparent;
+  border-top-color: transparent;
+  border-right-color: transparent;
+  cursor: pointer;
+}
+
+.photo {
+  max-width: 800px;
+}
+.photo img {
+  max-width: 100%;
+  height: auto;
 }/*# sourceMappingURL=all.css.map */
