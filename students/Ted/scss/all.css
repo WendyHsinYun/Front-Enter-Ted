@@ -122,7 +122,7 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: '';
+  content: "";
   content: none;
 }
 
@@ -134,7 +134,7 @@ table {
 body {
   /* 改變整個網頁的盒模型計算方式，避免 header 加上 padding 後超出頁面形成捲軸 */
   box-sizing: border-box;
-  font-family: 'Noto Sans TC', '華康黑體', '微軟正黑體', arial, sans-serif;
+  font-family: "Noto Sans TC", "華康黑體", "微軟正黑體", arial, sans-serif;
   position: relative;
 }
 
@@ -245,7 +245,7 @@ nav {
   display: none;
 }
 .search-panel::after {
-  content: '';
+  content: "";
   position: fixed;
   display: block;
   width: 100vw;
@@ -420,7 +420,7 @@ footer a {
   border-bottom-style: solid;
 }
 .loading::before {
-  content: '';
+  content: "";
   background-image: url(../images/FE_logo-4.png);
   background-size: 80%;
   background-repeat: no-repeat;
@@ -463,7 +463,7 @@ footer a {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 10;
+  z-index: 15;
   background-color: rgb(26, 216, 211);
   border-radius: 5px;
 }
@@ -475,7 +475,7 @@ footer a {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
-  object-fit: cover;
+     object-fit: cover;
   border-radius: 5px;
   opacity: 0.1;
 }
@@ -489,6 +489,9 @@ footer a {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+.test .question-number {
+  margin: 10px 0px;
 }
 
 .test-title {
@@ -522,6 +525,68 @@ footer a {
   background-color: rgba(172, 255, 252, 0.8);
 }
 
+.modal-overlay {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  top: 0;
+  z-index: 13;
+}
+
+.chart-container {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px 0px;
+}
+
+.chart-circle {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-radius: 50%;
+  background: conic-gradient(#00bcd4 0% 80%, #e0f7fa 80% 100%);
+}
+.chart-circle::before {
+  content: "";
+  position: absolute;
+  width: 90%;
+  height: 90%;
+  background-color: #fff;
+  border-radius: 50%;
+}
+
+.chart-number {
+  position: absolute;
+  font-size: 24px;
+  color: rgb(26, 216, 211);
+}
+
+.chart-btn {
+  cursor: pointer;
+  height: 40px;
+  padding: 0px 15px;
+  border: 0px;
+  color: rgb(26, 216, 211);
+  background-color: white;
+  font-size: 18px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.chart-btn:hover {
+  color: white;
+  font-weight: 600;
+  background-color: rgba(172, 255, 252, 0.8);
+}
+
 /* 背景圖片共同設定 */
 .container,
 .container::before {
@@ -547,7 +612,7 @@ footer a {
   z-index: -1;
   display: block;
   height: 100%;
-  content: '';
+  content: "";
   filter: brightness(50%);
   background-attachment: fixed;
   background-image: url(../images/second-img.jpg);
@@ -558,7 +623,7 @@ footer a {
   z-index: -1;
   display: block;
   height: 100%;
-  content: '';
+  content: "";
   filter: brightness(50%);
   background-image: url(../images/third-img.jpg);
   /* 製造滾動視差 */
@@ -597,7 +662,7 @@ footer a {
     z-index: -1;
     display: block;
     height: 100%;
-    content: '';
+    content: "";
     filter: brightness(50%);
     background-image: url(../images/five-img.jpg);
     top: 0;
@@ -703,7 +768,7 @@ footer a {
   position: relative;
 }
 .service::after {
-  content: '';
+  content: "";
   border: 15px solid transparent;
   border-left-color: rgb(26, 216, 211);
   border-bottom-color: rgb(26, 216, 211);
@@ -817,7 +882,7 @@ footer a {
   height: 100%;
   position: absolute;
   -o-object-fit: cover;
-  object-fit: cover;
+     object-fit: cover;
   opacity: 0;
   transition: opacity 1s ease;
 }
@@ -945,7 +1010,7 @@ footer a {
 .img-container .card-img {
   width: 100%;
   -o-object-fit: cover;
-  object-fit: cover;
+     object-fit: cover;
   border-radius: 5px;
   transition: all 0.6s ease;
 }
@@ -984,7 +1049,7 @@ footer a {
   height: 100%;
   position: absolute;
   -o-object-fit: cover;
-  object-fit: cover;
+     object-fit: cover;
 }
 .banner .banner-text {
   width: 250px;
@@ -1025,7 +1090,7 @@ footer a {
   width: 400px;
   height: 300px;
   -o-object-fit: cover;
-  object-fit: cover;
+     object-fit: cover;
   margin-bottom: 35px;
   border-radius: 5px;
 }
@@ -1139,4 +1204,4 @@ footer a {
 .photo img {
   max-width: 100%;
   height: auto;
-} /*# sourceMappingURL=all.css.map */
+}/*# sourceMappingURL=all.css.map */
