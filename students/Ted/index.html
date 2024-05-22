@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="./scss/all.css">
   <link rel="icon" href="./images/favicon.ico" type="image/x-icon" />
 </head>
+
 <body>
   <header>
     <a href="./index.html">
@@ -44,7 +45,7 @@
         <div class="content">
           <p>想知道自己適合什麼學習環境嗎？</p>
           <p>可以點擊按鈕測測看哦！</p>
-          <button type="button" class="btn">測驗 GO</button>
+          <button type="button" class="btn open-modal">測驗 GO</button>
         </div>
       </div>
       <div class="container third-background">
@@ -93,18 +94,20 @@
     <div class="go-top">
       <img src="images/FE_TOP.png" alt="go-top" class="top-btn">
     </div>
-    <img src="./images/FE_test_go.png" alt="go to test" class="test-img">
-    <div class="test-modal">
-      <div class="test-box">
-        <img src="./images/Staff-Selection-.jpg" alt="">
-        <div class="test test-render">
-          <h3 class="test-title">測驗說明</h3>
-          <p class="test-description">點選「開始測驗」後，系統將根據你的回答，找出最適合你的學習環境，並顯示有多少百分比的合適度。
-          </p>
-          <button class="test-btn test-start">開始測驗</button>
+    <div>
+      <img src="./images/FE_test_go.png" alt="go to test" class="test-img open-modal">
+      <div class="modal-overlay"></div>
+      <div class="test-modal">
+        <div class="test-box">
+          <img src="./images/Staff-Selection-.jpg" alt="">
+          <div class="test test-render">
+            <h3 class="test-title">測驗說明</h3>
+            <p class="test-description">點選「開始測驗」後，系統將根據你的回答，找出最適合你的學習環境，並顯示有多少百分比的合適度。
+            </p>
+            <button class="test-btn test-start">開始測驗</button>
+          </div>
         </div>
       </div>
-    </div>
   </main>
   <footer>
     <div class="contact">

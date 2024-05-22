@@ -2,6 +2,7 @@ const main = document.querySelector('main')
 const topBtn = document.querySelector('.top-btn')
 const loading = document.querySelector('.loading')
 const testGo = document.querySelector('.test-img')
+const openModal = document.querySelectorAll('.open-modal')
 const checkBox = document.querySelector('#checkbox')
 const keyword = document.querySelector('.keyword')
 const voiceBtn = document.querySelector('.voice-btn')
@@ -10,6 +11,7 @@ const searchBtn = document.querySelector('.search-btn')
 window.addEventListener('load', function () {
   loading.classList.add('loaded')
   testGo.classList.add('loaded')
+  closeModal()
 })
 
 topBtn.addEventListener('click', function () {
@@ -91,13 +93,22 @@ axios
   .catch(error => console.error('加載 JSON 檔案時出錯:', error))
 
 const testModal = document.querySelector('.test-modal')
-
-testGo.addEventListener('click', showModal)
+const modalOverlay = document.querySelector('.modal-overlay')
 
 // 打開測驗modal
 function showModal() {
   testModal.style.display = 'block'
+  modalOverlay.style.display = 'block'
 }
+function closeModal() {
+  testModal.style.display = 'none'
+  modalOverlay.style.display = 'none'
+}
+
+openModal.forEach(item => {
+  item.addEventListener('click', showModal)
+})
+modalOverlay.addEventListener('click', closeModal)
 
 const testRender = document.querySelector('.test-render')
 const testStart = document.querySelector('.test-start')
@@ -133,13 +144,41 @@ testRender.addEventListener('click', e => {
       testCardRender(num)
     } else if ((num = questionData.length - 1)) {
       convertToUserRecordObject()
+
       const schoolScores = schoolScore(rawData, userRecordObj)
       const topSchool = findTopSchool(schoolScores)
-      console.log('topSchool:', topSchool)
+      const target = rawData.filter(item => item.name === topSchool.schoolName)
+
       testRender.innerHTML = `
       <p class="test-question">你有多適合下列學校呢？</p>
-      <div class="chart">${topSchool.score * 20}</div>
-      <a class="test-btn">${topSchool.schoolName}</a>`
+      <div class="chart-container">
+        <div class="chart-circle">
+          <span class="chart-number"></span>
+        </div>
+      </div>
+      <a class="chart-btn">? ? ?</a>`
+
+      const chartCircle = document.querySelector('.chart-circle')
+      const chartNumber = document.querySelector('.chart-number')
+      const chartBtn = document.querySelector('.chart-btn')
+      let value = 0
+      let index = 0
+      const interval = setInterval(() => {
+        value = Math.floor(Math.random() * 41) + 40
+        index = Math.floor(Math.random() * 9)
+        chartNumber.textContent = `${value} %`
+        chartBtn.textContent = `${rawData[index].name}`
+        chartCircle.style.background = `conic-gradient(#00bcd4 30% ${value}%, #19D7D0 ${value}% 90%)`
+      }, 300)
+
+      setTimeout(() => {
+        clearInterval(interval)
+        let finalValue = topSchool.score * 20
+        chartNumber.textContent = `${finalValue} %`
+        chartBtn.textContent = `${topSchool.schoolName}`
+        chartBtn.href = `content.html?id=${target[0].creatTime}`
+        chartCircle.style.background = `conic-gradient(#00bcd4 0% ${finalValue}%, #19D7D0 ${finalValue}% 100%)`
+      }, 3000)
     }
   }
 })
