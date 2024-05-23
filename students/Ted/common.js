@@ -248,3 +248,17 @@ function findTopSchool(schoolScores) {
   )
   return school
 }
+
+const openLogin = document.querySelector('.open-login')
+const loginOverlay = document.querySelector('.login-overlay')
+const login = document.querySelector('.log-in')
+
+openLogin.addEventListener('click', () => {
+  loginOverlay.style.display = 'block'
+  login.style.display = 'block'
+})
+
+loginOverlay.addEventListener('click', () => {
+  loginOverlay.style.display = 'none'
+  login.style.display = 'none'
+})

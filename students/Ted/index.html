@@ -18,7 +18,7 @@
       <ul class="list">
         <li><a href="./article.html">探索</a></li>
         <li><a href="#">技能樹</a></li>
-        <li><a href="#">登入</a></li>
+        <li><a href="#" class="open-login">登入</a></li>
         <label for="checkbox" class="search-label"></label>
       </ul>
     </nav>
@@ -128,6 +128,26 @@
     </div>
   </footer>
   <div class="loading"></div>
+  <div class="login-overlay"></div>
+  <div class="log-in">
+    <div class="log-container">
+      <div class="log-logo">
+        <img src="./images/FE_logo-4.png" alt="">
+      </div>
+      <div class="account-div">
+        <input type="text" placeholder="Email">
+        <input type="text" placeholder="*****">
+      </div>
+      <div class="forget-pw">
+        <p>忘記密碼？</p>
+      </div>
+      <div class="btn-group">
+        <button class="btn-modal btn-register">註冊</button>
+        <button class="btn-modal btn-login"><a href="./member.html">登入</a></button>
+        <button class="btn-modal btn-gmail">Log In With Gmail</button>
+      </div>
+    </div>
+  </div>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.8/axios.min.js"></script>
 <script src="common.js" type="module"></script>

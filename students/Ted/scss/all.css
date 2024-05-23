@@ -587,6 +587,99 @@ footer a {
   background-color: rgba(172, 255, 252, 0.8);
 }
 
+.login-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 12;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(192, 192, 192, 0.5);
+  display: none;
+}
+
+.log-in {
+  width: 350px;
+  height: 430px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 12;
+  background-color: #fff;
+  border: 1px solid rgb(128, 128, 128);
+  border-radius: 3px;
+  font-size: 16px;
+  display: none;
+}
+
+.log-container {
+  width: 256px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.log-logo {
+  width: 225px;
+  height: 105px;
+  margin-top: 20px;
+}
+.log-logo img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  filter: brightness(0) saturate(100%) invert(64%) sepia(71%) saturate(525%) hue-rotate(126deg) brightness(99%) contrast(86%);
+  opacity: 0.8;
+}
+
+.account-div {
+  width: 100%;
+  height: 70px;
+}
+.account-div input {
+  width: 100%;
+  height: 50%;
+  border: rgb(128, 128, 128) solid 0.5px;
+  line-height: 1.5;
+  letter-spacing: 3px;
+  padding-left: 6px;
+}
+
+.forget-pw {
+  margin: 20px 0px;
+  align-self: flex-end;
+  color: rgb(128, 128, 128);
+  cursor: pointer;
+}
+
+.btn-group {
+  width: 256px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+.btn-group .btn-modal {
+  width: 100px;
+  height: 38px;
+  color: #fff;
+  background-color: rgb(26, 216, 211);
+  border: #fff;
+  border-radius: 8px;
+  letter-spacing: 3px;
+  font-size: 18px;
+  line-height: 38px;
+}
+.btn-group .btn-gmail {
+  width: 100%;
+  background-color: red;
+}
+.btn-group a {
+  color: white;
+}
+
 /* 背景圖片共同設定 */
 .container,
 .container::before {
@@ -1204,4 +1297,79 @@ footer a {
 .photo img {
   max-width: 100%;
   height: auto;
+}
+
+.member-panel {
+  width: 80%;
+  margin: 0 auto;
+  padding: 60px 0px;
+  display: flex;
+  justify-content: center;
+}
+
+.member-container {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.member-avatar {
+  width: 120px;
+  height: 120px;
+  margin-bottom: 36px;
+}
+.member-avatar img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+}
+
+.member-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.member-info .info-form {
+  display: flex;
+  margin-bottom: 20px;
+}
+.member-info .info-form p {
+  width: 100px;
+  padding-top: 8px;
+  font-size: 16px;
+  letter-spacing: 3px;
+  color: rgb(158, 158, 158);
+  text-align: center;
+}
+.member-info .info-form input {
+  width: 327px;
+  height: 30px;
+  font-size: 16px;
+  letter-spacing: 5px;
+  color: rgb(128, 128, 128);
+  border: #fff;
+  outline: none;
+}
+
+.member-btn {
+  order: -1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 20px 0px;
+}
+
+.btn-primary {
+  width: 102px;
+  padding: 10px;
+  font-size: 16px;
+  background-color: rgb(26, 216, 211);
+  color: white;
+  border: 1px solid rgb(26, 216, 211);
+  border-radius: 5px;
+  text-align: center;
 }/*# sourceMappingURL=all.css.map */
