@@ -262,3 +262,49 @@ loginOverlay.addEventListener('click', () => {
   loginOverlay.style.display = 'none'
   login.style.display = 'none'
 })
+
+console.log(123)
+// ---------------------------------------------------------------------
+
+// Import the functions you need from the SDKs you need
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js'
+import {
+  getAuth,
+  signInWithPopup,
+  GoogleAuthProvider
+} from 'https://www.gstatic.com/firebasejs/10.12.1/firebase-auth.js'
+
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: 'AIzaSyBNJSe8S9KmNamUmxdHItko-FYOGz76pBs',
+  authDomain: 'frontend-ted.firebaseapp.com',
+  projectId: 'frontend-ted',
+  storageBucket: 'frontend-ted.appspot.com',
+  messagingSenderId: '230889402040',
+  appId: '1:230889402040:web:773292211e602657ebce4d',
+  measurementId: 'G-WFF7HKCZQ2'
+}
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig)
+// const analytics = getAnalytics(app)
+const auth = getAuth(app)
+const provider = new GoogleAuthProvider()
+
+document.querySelector('.google-sign-in-btn').addEventListener('click', () => {
+  signInWithPopup(auth, provider)
+    .then(result => {
+      console.log('User signed in: ', result.user)
+    })
+    .catch(error => {
+      const errorCode = error.code
+      const errorMessage = error.message
+      const email = error.customData.email
+      const credential = GoogleAuthProvider.credentialFromError(error)
+      console.error('Error during sign in: ', error)
+    })
+})
