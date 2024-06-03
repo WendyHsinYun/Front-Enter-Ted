@@ -209,6 +209,14 @@ nav {
   color: rgb(26, 216, 211);
 }
 
+.nav-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 .search-label {
   cursor: pointer;
   background-image: url(../images/FE_search_green.png);
@@ -1362,6 +1370,9 @@ footer a {
   justify-content: space-evenly;
   padding: 20px 0px;
 }
+.member-btn a {
+  color: #fff;
+}
 
 .btn-primary {
   width: 102px;
@@ -1372,4 +1383,14 @@ footer a {
   border: 1px solid rgb(26, 216, 211);
   border-radius: 5px;
   text-align: center;
+}
+
+.correct-btn-group {
+  display: flex;
+  gap: 20px;
+}
+
+.enter-correct,
+.cancel-correct {
+  display: none;
 }/*# sourceMappingURL=all.css.map */

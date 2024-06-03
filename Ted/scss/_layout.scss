@@ -72,6 +72,13 @@ nav {
   }
 }
 
+.nav-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
 .search-label {
   cursor: pointer;
   background-image: url(../images/FE_search_green.png);

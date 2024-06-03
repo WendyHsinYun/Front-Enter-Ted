@@ -60,6 +60,9 @@
   flex-direction: column;
   justify-content: space-evenly;
   padding: 20px 0px;
+  a {
+    color: #fff;
+  }
 }
 
 .btn-primary {
@@ -71,4 +74,14 @@
   border: 1px solid rgb(26, 216, 211);
   border-radius: 5px;
   text-align: center;
+}
+
+.correct-btn-group {
+  display: flex;
+  gap: 20px;
+}
+
+.enter-correct,
+.cancel-correct {
+  display: none;
 }

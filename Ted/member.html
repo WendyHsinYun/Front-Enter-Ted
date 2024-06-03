@@ -18,7 +18,8 @@
       <ul class="list">
         <li><a href="./article.html">探索</a></li>
         <li><a href="#">技能樹</a></li>
-        <li><a href="#" class="open-login">登入</a></li>
+        <li class="nav-login"><a href="#" class="open-login">登入</a></li>
+        </li>
         <label for="checkbox" class="search-label"></label>
       </ul>
     </nav>
@@ -40,27 +41,31 @@
       </div>
       <div class="member-panel">
         <div class="member-container">
-          <div class="member-avatar"><img src="./images/PXL_20230806_074951305~2.jpg" alt=""></div>
+          <div class="member-avatar"><img src="" alt=""></div>
           <div class="member-info">
             <div class="info-form">
               <p>姓名</p>
-              <input type="text" value="黃偉軒">
+              <input type="text" disabled value="請輸入姓名" class="member-name">
             </div>
             <div class="info-form">
               <p>手機</p>
-              <input type="text" placeholder="請輸入號碼">
+              <input type="text" disabled placeholder="請輸入號碼" class="member-phone">
             </div>
             <div class="info-form">
               <p>信箱</p>
-              <input type="text" value="abcd@mail.com">
+              <input type="text" disabled value="" class="member-email">
             </div>
           </div>
-          <button class="btn-primary">修改資料</button>
+          <div class="correct-btn-group">
+            <button class="btn-primary correct-btn">修改資料</button>
+            <button class="btn-primary enter-correct">確定</button>
+            <button class="btn-primary cancel-correct">取消</button>
+          </div>
         </div>
         <div class="member-btn">
-          <button class="btn-primary">個人資料</button>
+          <button class="btn-primary"><a href="./member.html">個人資料</a></button>
           <button class="btn-primary">收藏</button>
-          <button class="btn-primary">登出</button>
+          <button class="btn-primary sign-out">登出</button>
         </div>
       </div>
     </section>
@@ -106,15 +111,15 @@
         <img src="./images/FE_logo-4.png" alt="">
       </div>
       <div class="account-div">
-        <input type="text" placeholder="Email">
-        <input type="text" placeholder="*****">
+        <input type="email" placeholder="Email" class="email-input">
+        <input type="password" placeholder="*****" class="pwd-input">
       </div>
       <div class="forget-pw">
         <p>忘記密碼？</p>
       </div>
       <div class="btn-group">
-        <button class="btn-modal btn-register">註冊</button>
-        <button class="btn-modal btn-login"><a href="./member.html">登入</a></button>
+        <button class="btn-modal sign-up">註冊</button>
+        <button class="btn-modal sign-in"><a href="#">登入</a></button>
         <button class="btn-modal btn-gmail google-sign-in-btn">Log In With Gmail</button>
       </div>
     </div>
@@ -122,7 +127,7 @@
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.8/axios.min.js"></script>
 <script src="common.js" type="module"></script>
-<!-- <script src="member.js" type="module"></script> -->
+<script src="member.js" type="module"></script>
 
 
 </html>
