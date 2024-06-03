@@ -26,9 +26,11 @@ logOut.addEventListener('click', () => {
   signOut(auth)
     .then(() => {
       console.log('登出成功')
-      if (window.location.pathname !== '/Ted/index.html') {
-        window.location.pathname = '/Ted/index.html'
-      }
+      const origin = window.location.origin
+      const pathname = window.location.pathname
+      const bathPath = pathname.split('/Ted')[0]
+      const targetUrl = `${origin}${bathPath}/Ted/index.html`
+      window.location.href = targetUrl
     })
     .catch(error => {
       console.log('登出失敗')
