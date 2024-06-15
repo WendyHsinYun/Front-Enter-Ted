@@ -12,7 +12,11 @@ import {
 
 import { app, auth } from './firebaseConfig.js'
 
+const personalBtn = document.querySelector('.personal-btn')
+const favoriteBtn = document.querySelector('.favorite-btn')
 const logOut = document.querySelector('.sign-out')
+const memberContainer = document.querySelector('.member-container')
+const favoriteContainer = document.querySelector('.favorite-container')
 const memberName = document.querySelector('.member-name')
 const memberPhone = document.querySelector('.member-phone')
 const memberEmail = document.querySelector('.member-email')
@@ -21,6 +25,16 @@ const correctBtns = document.querySelector('.correct-btn-group')
 const correctBtn = document.querySelector('.correct-btn')
 const enterBtn = document.querySelector('.enter-correct')
 const cancelBtn = document.querySelector('.cancel-correct')
+
+personalBtn.addEventListener('click', () => {
+  memberContainer.style.display = 'flex'
+  favoriteContainer.style.display = 'none'
+})
+
+favoriteBtn.addEventListener('click', () => {
+  memberContainer.style.display = 'none'
+  favoriteContainer.style.display = 'flex'
+})
 
 logOut.addEventListener('click', () => {
   signOut(auth)
@@ -95,3 +109,33 @@ function toggleInput(canEdit) {
   enterBtn.style.display = canEdit ? 'block' : 'none'
   cancelBtn.style.display = canEdit ? 'block' : 'none'
 }
+
+// 取得資料
+let collection = JSON.parse(localStorage.getItem('collection'))
+console.log(collection)
+
+// 渲染
+function renderFavorite() {
+  favoriteContainer.innerHTML = ``
+  collection.forEach(items => {
+    let template = ``
+    template = `<div class="favorite-card">
+            <a href="${items.href}"><img src="${items.img}" alt="" class="favorite-card-image"></a>
+            <h4 class="favorite-card-title">${items.name}</h4>
+            <i class="fa-solid fa-trash-can"></i>
+          </div>`
+    favoriteContainer.innerHTML += template
+  })
+}
+// 刪除功能
+favoriteContainer.addEventListener('click', e => {
+  if (e.target.classList.contains('fa-trash-can')) {
+    const card = e.target.closest('.favorite-card')
+    const name = card.querySelector('.favorite-card-title').innerText
+    collection = collection.filter(item => item.name !== name)
+    localStorage.setItem('collection', JSON.stringify(collection))
+    renderFavorite()
+  }
+})
+
+renderFavorite()

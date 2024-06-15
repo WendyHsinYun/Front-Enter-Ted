@@ -58,15 +58,48 @@
   order: -1;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
   padding: 20px 0px;
   a {
     color: #fff;
   }
 }
 
+.favorite-container {
+  width: 70%;
+  display: none;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.favorite-card {
+  width: 150px;
+  height: 240px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.favorite-card-image {
+  width: 150px;
+  height: 130px;
+  object-fit: cover;
+}
+
+.favorite-card-title {
+  color: $primary-color;
+}
+
+.fa-trash-can {
+  width: 16px;
+  cursor: pointer;
+}
+
 .btn-primary {
   width: 102px;
+  margin-top: 40px;
   padding: 10px;
   font-size: 16px;
   background-color: rgb(26, 216, 211);
