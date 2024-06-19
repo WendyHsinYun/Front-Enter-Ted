@@ -124,7 +124,7 @@ function removeFromCollect(name) {
 }
 
 function favoriteCards(name) {
-  let favorites = JSON.parse(localStorage.getItem('collection'))
+  let favorites = JSON.parse(localStorage.getItem('collection')) || []
   return favorites.some(item => item.name === name)
 }
 
