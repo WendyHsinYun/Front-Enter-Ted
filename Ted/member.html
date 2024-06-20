@@ -18,7 +18,8 @@
       <ul class="list">
         <li><a href="./article.html">探索</a></li>
         <li><a href="#">技能樹</a></li>
-        <li><a href="#">登入</a></li>
+        <li class="nav-login"><a href="#" class="open-login">登入</a></li>
+        </li>
         <label for="checkbox" class="search-label"></label>
       </ul>
     </nav>
@@ -34,23 +35,40 @@
   </div>
   <main>
     <section>
-      <div>
-        <div class="slider">
-          <img src="images/rotate-img-1.jpg" alt="" class="slide active">
-          <img src="images/rotate-img-2.jpg" alt="" class="slide">
-          <img src="images/rotate-img-3.jpg" alt="" class="slide">
-          <h3>蒐羅前端學校</h3>
+      <div class="banner">
+        <img src="./images/member-key.jpg" alt="" class="banner-img">
+        <h3 class="banner-text">會員中心</h3>
+      </div>
+      <div class="member-panel">
+        <div class="member-container">
+          <div class="member-avatar"><img src="" alt=""></div>
+          <div class="member-info">
+            <div class="info-form">
+              <p>姓名</p>
+              <input type="text" disabled value="請輸入姓名" class="member-name">
+            </div>
+            <div class="info-form">
+              <p>手機</p>
+              <input type="text" disabled placeholder="請輸入號碼" class="member-phone">
+            </div>
+            <div class="info-form">
+              <p>信箱</p>
+              <input type="text" disabled value="" class="member-email">
+            </div>
+          </div>
+          <div class="correct-btn-group">
+            <button class="btn-primary correct-btn">修改資料</button>
+            <button class="btn-primary enter-correct">確定</button>
+            <button class="btn-primary cancel-correct">取消</button>
+          </div>
         </div>
-      </div>
-      <div class="class-type">
-        <ul class="class-list">
-          <li class="active">全部</li>
-          <li>小班制</li>
-          <!-- 放養制在資料中屬於教法，但這裡的類別應該是要放班制，故刪除放養制的選項 -->
-          <li>一對一</li>
-        </ul>
-      </div>
-      <div class="card-panel">
+        <div class="favorite-container">
+        </div>
+        <div class="member-btn">
+          <button class="btn-primary personal-btn">個人資料</button>
+          <button class="btn-primary favorite-btn">收藏</button>
+          <button class="btn-primary sign-out">登出</button>
+        </div>
       </div>
     </section>
     <div class="go-top">
@@ -85,13 +103,34 @@
     <div class="social-link">
       <a href="http://www.facebook.com" target="_blank"><img src="./images/new-facebook-blue.svg" alt=""></a>
       <a href="http://line.me" target="_blank"><img src="./images/FE_line.png" alt=""></a>
-
     </div>
   </footer>
   <div class="loading"></div>
+  <div class="login-overlay"></div>
+  <div class="log-in">
+    <div class="log-container">
+      <div class="log-logo">
+        <img src="./images/FE_logo-4.png" alt="">
+      </div>
+      <div class="account-div">
+        <input type="email" placeholder="Email" class="email-input">
+        <input type="password" placeholder="*****" class="pwd-input">
+      </div>
+      <div class="forget-pw">
+        <p>忘記密碼？</p>
+      </div>
+      <div class="btn-group">
+        <button class="btn-modal sign-up">註冊</button>
+        <button class="btn-modal sign-in"><a href="#">登入</a></button>
+        <button class="btn-modal btn-gmail google-sign-in-btn">Log In With Gmail</button>
+      </div>
+    </div>
+  </div>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.8/axios.min.js"></script>
-<script src="article.js"></script>
+<script src="https://kit.fontawesome.com/e3ae2dc99b.js" crossorigin="anonymous"></script>
 <script src="common.js" type="module"></script>
+<script src="member.js" type="module"></script>
+
 
 </html>

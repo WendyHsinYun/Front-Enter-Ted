@@ -1,0 +1,120 @@
+.member-panel {
+  width: 80%;
+  margin: 0 auto;
+  padding: 60px 0px;
+  display: flex;
+  justify-content: center;
+}
+
+.member-container {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.member-avatar {
+  width: 120px;
+  height: 120px;
+  margin-bottom: 36px;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+}
+
+.member-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 20px;
+  .info-form {
+    display: flex;
+    margin-bottom: 20px;
+    p {
+      width: 100px;
+      // height: 30px;
+      padding-top: 8px;
+      font-size: 16px;
+      letter-spacing: 3px;
+      color: rgb(158, 158, 158);
+      text-align: center;
+    }
+    input {
+      width: 327px;
+      height: 30px;
+      font-size: 16px;
+      letter-spacing: 5px;
+      color: rgb(128, 128, 128);
+      border: #fff;
+      outline: none;
+    }
+  }
+}
+
+.member-btn {
+  order: -1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0px;
+  a {
+    color: #fff;
+  }
+}
+
+.favorite-container {
+  width: 70%;
+  display: none;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.favorite-card {
+  width: 150px;
+  height: 240px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.favorite-card-image {
+  width: 150px;
+  height: 130px;
+  object-fit: cover;
+}
+
+.favorite-card-title {
+  color: $primary-color;
+}
+
+.fa-trash-can {
+  width: 16px;
+  cursor: pointer;
+}
+
+.btn-primary {
+  width: 102px;
+  margin-top: 40px;
+  padding: 10px;
+  font-size: 16px;
+  background-color: rgb(26, 216, 211);
+  color: white;
+  border: 1px solid rgb(26, 216, 211);
+  border-radius: 5px;
+  text-align: center;
+}
+
+.correct-btn-group {
+  display: flex;
+  gap: 20px;
+}
+
+.enter-correct,
+.cancel-correct {
+  display: none;
+}

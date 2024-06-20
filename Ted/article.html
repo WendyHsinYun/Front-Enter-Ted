@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Front-Enter - 前端轉職資訊</title>
+  <link rel="stylesheet" href="./scss/all.css">
+  <link rel="icon" href="./images/favicon.ico" type="image/x-icon" />
+</head>
+
+<body>
+  <header>
+    <a href="./index.html">
+      <img src="./images/FE_logo-4.png" alt="logo" class="logo">
+    </a>
+    <nav>
+      <ul class="list">
+        <li><a href="./article.html">探索</a></li>
+        <li><a href="#">技能樹</a></li>
+        <li class="nav-login"><a href="#" class="open-login">登入</a></li>
+        </li>
+        <label for="checkbox" class="search-label"></label>
+      </ul>
+    </nav>
+  </header>
+  <input type="checkbox" id="checkbox" class="search-checkbox">
+  <div class="search-panel">
+    <p>SEARCH</p>
+    <div class="search-content">
+      <input type="text" class="keyword">
+      <button type="button" class="voice-btn"></button>
+      <button type="button" class="search-btn"></button>
+    </div>
+  </div>
+  <main>
+    <section>
+      <div>
+        <div class="slider">
+          <img src="images/rotate-img-1.jpg" alt="" class="slide active">
+          <img src="images/rotate-img-2.jpg" alt="" class="slide">
+          <img src="images/rotate-img-3.jpg" alt="" class="slide">
+          <h3>蒐羅前端學校</h3>
+        </div>
+      </div>
+      <div class="class-type">
+        <ul class="class-list">
+          <li class="active">全部</li>
+          <li>小班制</li>
+          <!-- 放養制在資料中屬於教法，但這裡的類別應該是要放班制，故刪除放養制的選項 -->
+          <li>一對一</li>
+        </ul>
+      </div>
+      <div class="card-panel">
+      </div>
+    </section>
+    <div class="go-top">
+      <img src="images/FE_TOP.png" alt="go-top" class="top-btn">
+    </div>
+    <img src="./images/FE_test_go.png" alt="go to test" class="test-img open-modal">
+    <div class="modal-overlay"></div>
+    <div class="test-modal">
+      <div class="test-box">
+        <img src="./images/Staff-Selection-.jpg" alt="">
+        <div class="test test-render">
+          <h3 class="test-title">測驗說明</h3>
+          <p class="test-description">點選「開始測驗」後，系統將根據你的回答，找出最適合你的學習環境，並顯示有多少百分比的合適度。
+          </p>
+          <button class="test-btn test-start">開始測驗</button>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div class="contact">
+      <a href="#">聯絡</a>
+    </div>
+    <div class="contact">
+      <span>M</span>
+      <p>0917-218-567</p>
+    </div>
+    <div class="contact">
+      <span>E</span>
+      <p>aaa24295234@gmail.com</p>
+    </div>
+    <div class="social-link">
+      <a href="http://www.facebook.com" target="_blank"><img src="./images/new-facebook-blue.svg" alt=""></a>
+      <a href="http://line.me" target="_blank"><img src="./images/FE_line.png" alt=""></a>
+
+    </div>
+  </footer>
+  <div class="loading"></div>
+  <div class="login-overlay"></div>
+  <div class="log-in">
+    <div class="log-container">
+      <div class="log-logo">
+        <img src="./images/FE_logo-4.png" alt="">
+      </div>
+      <div class="account-div">
+        <input type="email" placeholder="Email" class="email-input">
+        <input type="password" placeholder="*****" class="pwd-input">
+      </div>
+      <div class="forget-pw">
+        <p>忘記密碼？</p>
+      </div>
+      <div class="btn-group">
+        <button class="btn-modal sign-up">註冊</button>
+        <button class="btn-modal sign-in"><a href="#">登入</a></button>
+        <button class="btn-modal btn-gmail google-sign-in-btn">Log In With Gmail</button>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="https://kit.fontawesome.com/e3ae2dc99b.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.8/axios.min.js"></script>
+<script src="article.js" type="module"></script>
+<script src="common.js" type="module"></script>
+
+</html>

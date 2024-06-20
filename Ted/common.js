@@ -248,3 +248,96 @@ function findTopSchool(schoolScores) {
   )
   return school
 }
+
+// 登入
+const openLogin = document.querySelector('.open-login')
+const loginOverlay = document.querySelector('.login-overlay')
+const login = document.querySelector('.log-in')
+
+function showLoginModal() {
+  loginOverlay.style.display = 'block'
+  login.style.display = 'block'
+}
+
+function hideLoginModal() {
+  loginOverlay.style.display = 'none'
+  login.style.display = 'none'
+}
+
+openLogin.addEventListener('click', showLoginModal)
+
+loginOverlay.addEventListener('click', hideLoginModal)
+
+import {
+  signInWithPopup,
+  GoogleAuthProvider,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  onAuthStateChanged
+} from 'https://www.gstatic.com/firebasejs/10.12.1/firebase-auth.js'
+
+import { auth } from './firebaseConfig.js'
+
+// google 登入
+const provider = new GoogleAuthProvider()
+document.querySelector('.google-sign-in-btn').addEventListener('click', () => {
+  signInWithPopup(auth, provider)
+    .then(result => {
+      console.log('成功登入')
+    })
+    .catch(error => {
+      console.log('登入失敗')
+    })
+})
+
+const emailInput = document.querySelector('.email-input')
+const pwdInput = document.querySelector('.pwd-input')
+const signUp = document.querySelector('.sign-up')
+const signIn = document.querySelector('.sign-in')
+const navLogin = document.querySelector('.nav-login')
+
+// 註冊
+signUp.addEventListener('click', () => {
+  const email = emailInput.value
+  const password = pwdInput.value
+  createUserWithEmailAndPassword(auth, email, password)
+    .then(userCredential => {
+      hideLoginModal()
+    })
+    .catch(error => {
+      console.log('註冊失敗')
+    })
+})
+
+// 一般登入
+signIn.addEventListener('click', () => {
+  const email = emailInput.value
+  const password = pwdInput.value
+  signInWithEmailAndPassword(auth, email, password)
+    .then(userCredential => {
+      console.log('成功登入')
+    })
+    .catch(error => {
+      console.log('登入失敗')
+    })
+})
+
+// 登入狀態監聽
+onAuthStateChanged(auth, user => {
+  if (user) {
+    changeLoginBtn(true, user)
+    hideLoginModal()
+  } else {
+    changeLoginBtn(false)
+  }
+})
+
+function changeLoginBtn(isLogin, user) {
+  if (isLogin) {
+    if (!user.photoURL) {
+      user.photoURL =
+        'https://gd-hbimg.huaban.com/e40d922474425c9ffae8f36e2f2495078ea6905b13c2-okJiuY_fw658webp'
+    }
+    navLogin.innerHTML = `<a href="./member.html"><img src='${user.photoURL}' alt="" class="nav-avatar"></a>`
+  }
+}
