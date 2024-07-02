@@ -118,3 +118,13 @@
 .cancel-correct {
   display: none;
 }
+
+// post 相關
+form {
+  width: 300px;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+

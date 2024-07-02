@@ -37,38 +37,48 @@
     <section>
       <div class="banner">
         <img src="./images/member-key.jpg" alt="" class="banner-img">
-        <h3 class="banner-text">會員中心</h3>
+        <h3 class="banner-text">貼文管理</h3>
       </div>
       <div class="member-panel">
         <div class="member-container">
-          <div class="member-avatar"><img src="" alt=""></div>
-          <div class="member-info">
-            <div class="info-form">
-              <p>姓名</p>
-              <input type="text" disabled value="請輸入姓名" class="member-name">
-            </div>
-            <div class="info-form">
-              <p>手機</p>
-              <input type="text" disabled placeholder="請輸入號碼" class="member-phone">
-            </div>
-            <div class="info-form">
-              <p>信箱</p>
-              <input type="text" disabled value="" class="member-email">
-            </div>
-          </div>
-          <div class="correct-btn-group">
-            <button class="btn-primary correct-btn">修改資料</button>
-            <button class="btn-primary enter-correct">確定</button>
-            <button class="btn-primary cancel-correct">取消</button>
-          </div>
-        </div>
-        <div class="favorite-container">
+          <div class="post-list"></div>
+          <form id="post-form">
+            <label for="name">教室名稱</label><input type="text" id="name" class="post-name">
+            <label for="location">上課地點</label><select id="location" class="post-location" required>
+              <option value="" selected disabled>請選擇上課地區</option>
+              <option value="台北">台北</option>
+              <option value="台中">台中</option>
+              <option value="高雄">高雄</option>
+              <option value="各地">各地</option>
+            </select>
+            <label for="classtype">班制</label><select type="text" id="classtype" class="post-classtype">
+              <option value="" selected disabled>請選擇班級制度</option>
+              <option value="大班制">大班制</option>
+              <option value="小班制">小班制</option>
+              <option value="一對一">一對一</option>
+            </select>
+            <label for="teachway">教學方式</label><select type="text" id="teachway" class="post-teachway">
+              <option value="" selected disabled>請選擇教學方式</option>
+              <option value="放養制">放養制</option>
+              <option value="手把手教學">手把手教學</option>
+            </select>
+            <label for="totalday">上課天數</label><input type="number" id="totalday" class="post-totalday">
+            <label for="weekhour">每週學習時間</label><input type="number" id="weekhour" class="post-weekhour">
+            <label for="technology">技能</label><input type="text" id="technology" class="post-technology">
+            <label for="fee">費用</label><input type="number" id="fee" class="post-fee">
+            <label for="phone">電話</label><input type="tel" id="phone" class="post-phone">
+            <label for="mail">信箱</label><input type="email" id="mail" class="post-mail">
+            <label for="background">背景圖片</label><input type="url" id="background" class="post-background grid-3">
+            <label for="squareurl">縮圖</label><input type="url" id="squareurl" class="post-squareurl grid-3">
+            <label for="preface">簡介</label><input type="text" id="preface" class="post-preface grid-3">
+            <label for="topic">文章標題</label><input type="text" class="post-topic grid-3">
+            <label for="content">內容</label><textarea type="text" id="content" class="post-content grid-3"></textarea>
+            <button type="submit" class="btn-primary post-submit">送出</button>
+          </form>
         </div>
         <div class="member-btn">
-          <button class="btn-primary personal-btn">個人資料</button>
-          <button class="btn-primary favorite-btn">收藏</button>
-          <button class="btn-primary post-btn"><a href="./post.html">貼文管理</a></button>
-          <button class="btn-primary sign-out">登出</button>
+          <button class="btn-primary edit-btn">編輯貼文</button>
+          <button class="btn-primary publish-btn">發佈貼文</button>
         </div>
       </div>
     </section>
@@ -131,7 +141,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.8/axios.min.js"></script>
 <script src="https://kit.fontawesome.com/e3ae2dc99b.js" crossorigin="anonymous"></script>
 <script src="common.js" type="module"></script>
-<script src="member.js" type="module"></script>
+<script src="post.js" type="module"></script>
 
 
 </html>
