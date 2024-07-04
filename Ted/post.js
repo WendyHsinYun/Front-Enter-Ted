@@ -49,9 +49,10 @@ function writePost(
 ) {
   const postId = generateRandomId()
   const db = getDatabase(app)
+  const createdTime = Date.now()
   set(ref(db, 'posts/' + postId), {
     name,
-    location,
+    city: location,
     rectangleUrl: background,
     squareUrl,
     topic,
@@ -64,7 +65,9 @@ function writePost(
     teachWay,
     fee,
     phone,
-    mail
+    mail,
+    uid: postId,
+    createdTime
   })
 }
 
