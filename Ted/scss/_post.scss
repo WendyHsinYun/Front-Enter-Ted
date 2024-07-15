@@ -1,0 +1,37 @@
+.post-list {
+  display: none;
+}
+
+#post-form {
+  width: 90%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  row-gap: 15px;
+  line-height: 32px;
+}
+
+label {
+  height: 30px;
+  margin-left: 20px;
+}
+
+input,
+select {
+  font-size: 18px;
+}
+
+textarea {
+  resize: none;
+  font-size: 20px;
+  height: 300px;
+}
+
+.grid-3 {
+  grid-column: 2 / 5;
+}
+
+.post-submit {
+  grid-column: 4 / 5;
+  margin: 0;
+  justify-self: end;
+}

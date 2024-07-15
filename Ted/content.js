@@ -7,23 +7,43 @@
 // 解析網址的 query string
 const urlParams = new URLSearchParams(window.location.search).get('id')
 
-// 取得資料
-let articleList = []
+import { app } from './firebaseConfig.js'
+import {
+  getDatabase,
+  ref,
+  onValue
+} from 'https://www.gstatic.com/firebasejs/10.12.1/firebase-database.js'
+
+let dataArray = []
 let urlData = ''
 
-axios
-  .get('./front-enter-export.json')
-  .then(
-    res => (
-      (articleList = Object.values(res.data.article)),
-      // 比對 query string 與資料中的 creatTime
-      (urlData = articleList.find(function (item) {
-        return item.creatTime.toString() === urlParams
-      })),
-      contentRender(urlData)
-    )
-  )
-  .catch(error => console.error('加載 JSON 檔案時出錯:', error))
+const database = getDatabase(app)
+const postRef = ref(database, 'posts/')
+onValue(postRef, snapshot => {
+  const data = snapshot.val()
+  dataArray = data ? Object.values(data) : []
+  urlData = dataArray.find(function (item) {
+    return item.createdTime.toString() === urlParams
+  })
+  contentRender(urlData)
+})
+
+// 取得資料
+// let articleList = []
+
+// axios
+//   .get('./front-enter-export.json')
+//   .then(
+//     res => (
+//       (articleList = Object.values(res.data.article)),
+//       // 比對 query string 與資料中的 creatTime
+//       (urlData = articleList.find(function (item) {
+//         return item.creatTime.toString() === urlParams
+//       })),
+//       contentRender(urlData)
+//     )
+//   )
+//   .catch(error => console.error('加載 JSON 檔案時出錯:', error))
 
 // 取出符合的資料，放入 template 中渲染出來
 

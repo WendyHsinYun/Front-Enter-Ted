@@ -19,14 +19,17 @@ topBtn.addEventListener('click', function () {
 })
 
 function search() {
-  let filterData = articleList.filter(item => item.name.includes(keyword.value))
-  cardRender(filterData)
+  // let filterData = dataArray.filter(item => item.name.includes(keyword.value))
+  // window.location.hash = keyword.value
 }
 
 searchBtn.addEventListener('click', function () {
-  search()
-  checkBox.checked = false
-  keyword.value = ''
+  if (keyword.value) {
+    let targetUrl = 'article.html'
+    window.location.href = `${targetUrl}#${keyword.value}`
+    checkBox.checked = false
+    keyword.value = ''
+  }
 })
 
 // 語音輸入
@@ -79,21 +82,35 @@ const questionData = [
   }
 ]
 
-let articleList = []
 let rawData = []
 
-axios
-  .get('./front-enter-export.json')
-  .then(
-    res => (
-      (articleList = Object.values(res.data.article)),
-      (rawData = [...articleList])
-    )
-  )
-  .catch(error => console.error('加載 JSON 檔案時出錯:', error))
+// axios
+//   .get('./front-enter-export.json')
+//   .then(
+//     res => (
+//       (dataArray = Object.values(res.data.article)),
+//       (rawData = [...dataArray])
+//     )
+//   )
+//   .catch(error => console.error('加載 JSON 檔案時出錯:', error))
 
 const testModal = document.querySelector('.test-modal')
 const modalOverlay = document.querySelector('.modal-overlay')
+
+import {
+  getDatabase,
+  ref,
+  onValue
+} from 'https://www.gstatic.com/firebasejs/10.12.1/firebase-database.js'
+
+let dataArray = []
+const database = getDatabase(app)
+const postRef = ref(database, 'posts/')
+onValue(postRef, snapshot => {
+  const data = snapshot.val()
+  dataArray = data ? Object.values(data) : []
+  rawData = [...dataArray]
+})
 
 // 打開測驗modal
 function showModal() {
@@ -176,7 +193,7 @@ testRender.addEventListener('click', e => {
         let finalValue = topSchool.score * 20
         chartNumber.textContent = `${finalValue} %`
         chartBtn.textContent = `${topSchool.schoolName}`
-        chartBtn.href = `content.html?id=${target[0].creatTime}`
+        chartBtn.href = `content.html?id=${target[0].createdTime}`
         chartCircle.style.background = `conic-gradient(#00bcd4 0% ${finalValue}%, #19D7D0 ${finalValue}% 100%)`
       }, 3000)
     }
@@ -276,7 +293,7 @@ import {
   onAuthStateChanged
 } from 'https://www.gstatic.com/firebasejs/10.12.1/firebase-auth.js'
 
-import { auth } from './firebaseConfig.js'
+import { app, auth } from './firebaseConfig.js'
 
 // google 登入
 const provider = new GoogleAuthProvider()

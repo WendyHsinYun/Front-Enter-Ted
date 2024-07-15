@@ -1,13 +1,27 @@
-import { auth } from './firebaseConfig.js'
+import { app, auth } from './firebaseConfig.js'
 import { onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.12.1/firebase-auth.js'
+import {
+  getDatabase,
+  ref,
+  onValue
+} from 'https://www.gstatic.com/firebasejs/10.12.1/firebase-database.js'
 
 const classType = document.querySelector('.class-type')
 const cardPanel = document.querySelector('.card-panel')
-
-let articleList = []
-let searchData = []
+const database = getDatabase(app)
+const postRef = ref(database, 'posts/')
 
 let isUserLoggedIn = false
+
+let dataArray = []
+let searchArray = []
+
+onValue(postRef, snapshot => {
+  const data = snapshot.val()
+  dataArray = data ? Object.values(data) : []
+  cardRender(dataArray)
+  isHash()
+})
 
 onAuthStateChanged(auth, user => {
   if (user) {
@@ -15,18 +29,20 @@ onAuthStateChanged(auth, user => {
   } else {
     isUserLoggedIn = false
   }
-  cardRender(searchData)
+  cardRender(dataArray)
 })
 
-axios
-  .get('./front-enter-export.json')
-  .then(
-    res => (
-      (articleList = Object.values(res.data.article)),
-      (searchData = [...articleList])
-    )
-  )
-  .catch(error => console.error('加載 JSON 檔案時出錯:', error))
+function isHash() {
+  let hash = decodeURIComponent(location.hash.substring(1))
+  if (hash) {
+    let searchArray = dataArray.filter(item => item.name.includes(hash))
+    cardRender(searchArray)
+  } else {
+    cardRender(dataArray)
+  }
+}
+
+window.onhashchange = isHash
 
 function cardRender(data) {
   let template = ``
@@ -43,13 +59,13 @@ function cardRender(data) {
               : ''
           }</div>
           <div class="card-header">
-            <a href="content.html?id=${item.creatTime}">
+            <a href="content.html?id=${item.createdTime}">
               <img src="images/location_icon_one.png" class="location-icon">
             </a>
             <p class="location">${item.city}</p>
           </div>
           <div class="card-content">
-            <a href="content.html?id=${item.creatTime}">
+            <a href="content.html?id=${item.createdTime}">
               <div class="img-container">
                 <img
                   src="${item.squareUrl}"
@@ -78,27 +94,26 @@ classType.addEventListener('click', function (e) {
   if (e.target.tagName === 'LI') {
     classType.querySelector('.active').classList.remove('active')
     e.target.classList.add('active')
-    searchData =
+    searchArray =
       e.target.innerText === '全部'
-        ? [...articleList]
-        : articleList.filter(item => item.classType === e.target.innerText)
-    cardRender(searchData)
+        ? [...dataArray]
+        : dataArray.filter(item => item.classType === e.target.innerText)
+    cardRender(searchArray)
   }
 })
 
 cardPanel.addEventListener('click', function (e) {
   if (e.target.className === 'location') {
-    searchData = searchData.filter(
+    searchArray = searchArray.filter(
       item => item.city === e.target.innerText || item.city === '各地'
     )
-    cardRender(searchData)
+    cardRender(searchArray)
   }
   if (e.target.classList.contains('fa-heart')) {
     const card = e.target.closest('.card')
     const name = card.querySelector('h4').innerText
     const img = card.querySelector('.img-container img').src
     const href = card.querySelector('.card-content a').href
-    console.log(card, name, img, href)
 
     e.target.classList.toggle('fa-regular')
     e.target.classList.toggle('fa-solid')

@@ -1,0 +1,18 @@
+6/28 16:14
+
+思考表格內容排版、input大小
+
+
+7/3 16:41
+
+建立的資料需有 created time 的資料，uid的資料
+
+location 要改為 city
+
+7/3 21:00
+
+搜尋功能引用 article 內的函式，但對於 index.html 等其他頁面會出錯，因為無法直接渲染，需要加上一個跳轉至article.html的動作
+
+7/4 13:32
+
+搜尋功能 → 將文字放上網址 v  → 轉到 article.html 並帶有 hash → 解析hash內容 → 渲染卡片
