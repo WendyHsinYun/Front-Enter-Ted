@@ -1443,8 +1443,18 @@ form {
   gap: 5px;
 }
 
-.post-list {
+.form-container {
   display: none;
+  width: 800px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 15;
+  background-color: #f0f4f8;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 30px 20px;
 }
 
 #post-form {
@@ -1453,30 +1463,58 @@ form {
   grid-template-columns: repeat(4, 1fr);
   row-gap: 15px;
   line-height: 32px;
+  margin: 0 auto;
 }
 
 label {
   height: 30px;
-  margin-left: 20px;
+  margin-left: 10px;
+  color: #333333;
 }
 
 input,
-select {
+select,
+textarea {
+  width: 100%;
   font-size: 18px;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  padding: 5px;
+  box-sizing: border-box;
 }
 
 textarea {
   resize: none;
   font-size: 20px;
-  height: 300px;
+  height: 250px;
 }
 
 .grid-3 {
-  grid-column: 2/5;
+  grid-column: 1/5;
 }
 
 .post-submit {
   grid-column: 4/5;
   margin: 0;
   justify-self: end;
+}
+
+.post-list {
+  width: 70%;
+}
+
+.post-list-class {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+.post-list-class .className {
+  font-size: 18px;
+  font-weight: 700;
+}
+.post-list-class .btn-primary {
+  margin: 0;
+  width: 80px;
+  padding: 3px;
 }/*# sourceMappingURL=all.css.map */
