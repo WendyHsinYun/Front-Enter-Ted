@@ -4,6 +4,10 @@
   padding: 60px 0px;
   display: flex;
   justify-content: center;
+  align-items: center;
+  @include tablet {
+    flex-direction: column;
+  }
 }
 
 .member-container {
@@ -51,6 +55,13 @@
       border: #fff;
       outline: none;
     }
+    @include tablet {
+      flex-direction: column;
+      align-items: center;
+      input {
+        text-align: center;
+      }
+    }
   }
 }
 
@@ -61,6 +72,9 @@
   padding: 20px 0px;
   a {
     color: #fff;
+  }
+  @include tablet {
+    order: 1;
   }
 }
 
@@ -127,4 +141,3 @@ form {
   flex-direction: column;
   gap: 5px;
 }
-
