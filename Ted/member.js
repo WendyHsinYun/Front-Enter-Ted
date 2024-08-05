@@ -139,6 +139,3 @@ favoriteContainer.addEventListener('click', e => {
 })
 
 renderFavorite()
-
-
-// 貼文管理部分

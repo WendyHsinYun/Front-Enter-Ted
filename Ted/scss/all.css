@@ -1319,6 +1319,12 @@ footer a {
   padding: 60px 0px;
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+@media screen and (max-width: 768px) {
+  .member-panel {
+    flex-direction: column;
+  }
 }
 
 .member-container {
@@ -1368,6 +1374,15 @@ footer a {
   border: #fff;
   outline: none;
 }
+@media screen and (max-width: 768px) {
+  .member-info .info-form {
+    flex-direction: column;
+    align-items: center;
+  }
+  .member-info .info-form input {
+    text-align: center;
+  }
+}
 
 .member-btn {
   order: -1;
@@ -1377,6 +1392,11 @@ footer a {
 }
 .member-btn a {
   color: #fff;
+}
+@media screen and (max-width: 768px) {
+  .member-btn {
+    order: 1;
+  }
 }
 
 .favorite-container {
@@ -1445,7 +1465,7 @@ form {
 
 .form-container {
   display: none;
-  width: 800px;
+  width: 700px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1456,6 +1476,11 @@ form {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 30px 20px;
 }
+@media screen and (max-width: 480px) {
+  .form-container {
+    width: 300px;
+  }
+}
 
 #post-form {
   width: 90%;
@@ -1465,16 +1490,14 @@ form {
   line-height: 32px;
   margin: 0 auto;
 }
-
-label {
+#post-form label {
   height: 30px;
   margin-left: 10px;
   color: #333333;
 }
-
-input,
-select,
-textarea {
+#post-form input,
+#post-form select,
+#post-form textarea {
   width: 100%;
   font-size: 18px;
   border: 1px solid #cccccc;
@@ -1482,25 +1505,43 @@ textarea {
   padding: 5px;
   box-sizing: border-box;
 }
-
-textarea {
+#post-form textarea {
   resize: none;
   font-size: 20px;
   height: 250px;
 }
-
-.grid-3 {
+#post-form .grid-3 {
   grid-column: 1/5;
 }
-
-.post-submit {
+#post-form .post-submit {
   grid-column: 4/5;
   margin: 0;
   justify-self: end;
 }
+@media screen and (max-width: 480px) {
+  #post-form {
+    grid-template-columns: 1fr;
+    row-gap: 5px;
+  }
+  #post-form label,
+  #post-form input,
+  #post-form select,
+  #post-form textarea {
+    grid-column: 1/5;
+  }
+  #post-form label {
+    margin-top: 10px;
+    margin-left: 0px;
+  }
+}
 
 .post-list {
   width: 70%;
+}
+@media screen and (max-width: 480px) {
+  .post-list {
+    width: 200px;
+  }
 }
 
 .post-list-class {
@@ -1517,4 +1558,14 @@ textarea {
   margin: 0;
   width: 80px;
   padding: 3px;
+}
+@media screen and (max-width: 768px) {
+  .post-list-class {
+    flex-direction: column;
+  }
+  .post-list-class .post-btns {
+    text-align: center;
+    width: 200px;
+    margin-top: 10px;
+  }
 }/*# sourceMappingURL=all.css.map */

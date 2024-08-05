@@ -1,6 +1,6 @@
 .form-container {
   display: none;
-  width: 800px;
+  width: 700px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -10,6 +10,9 @@
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 30px 20px;
+  @include mobile {
+    width: 300px;
+  }
 }
 
 #post-form {
@@ -19,43 +22,59 @@
   row-gap: 15px;
   line-height: 32px;
   margin: 0 auto;
-}
+  label {
+    height: 30px;
+    margin-left: 10px;
+    color: #333333;
+  }
 
-label {
-  height: 30px;
-  margin-left: 10px;
-  color: #333333;
-}
+  input,
+  select,
+  textarea {
+    width: 100%;
+    font-size: 18px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    padding: 5px;
+    box-sizing: border-box;
+  }
 
-input,
-select,
-textarea {
-  width: 100%;
-  font-size: 18px;
-  border: 1px solid #cccccc;
-  border-radius: 5px;
-  padding: 5px;
-  box-sizing: border-box;
-}
+  textarea {
+    resize: none;
+    font-size: 20px;
+    height: 250px;
+  }
 
-textarea {
-  resize: none;
-  font-size: 20px;
-  height: 250px;
-}
+  .grid-3 {
+    grid-column: 1 / 5;
+  }
 
-.grid-3 {
-  grid-column: 1 / 5;
-}
-
-.post-submit {
-  grid-column: 4 / 5;
-  margin: 0;
-  justify-self: end;
+  .post-submit {
+    grid-column: 4 / 5;
+    margin: 0;
+    justify-self: end;
+  }
+  @include mobile {
+    grid-template-columns: 1fr;
+    row-gap: 5px;
+    label,
+    input,
+    select,
+    textarea {
+      grid-column: 1 / 5;
+    }
+    label {
+      margin-top: 10px;
+      margin-left: 0px;
+    }
+  }
 }
 
 .post-list {
   width: 70%;
+  @include mobile {
+    width: 200px;
+  }
 }
 
 .post-list-class {
@@ -71,5 +90,13 @@ textarea {
     margin: 0;
     width: 80px;
     padding: 3px;
+  }
+  @include tablet {
+    flex-direction: column;
+    .post-btns {
+      text-align: center;
+      width: 200px;
+      margin-top: 10px;
+    }
   }
 }
